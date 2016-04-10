@@ -1,0 +1,16 @@
+.station-list {
+  h1 {
+    font-size: 2em;
+  }
+
+  .list-group-item {
+    border-left: 0;
+    border-right: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+  .station-list-controls {
+    margin-top: 2em;
+  }
+}

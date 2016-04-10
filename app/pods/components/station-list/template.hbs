@@ -1,0 +1,15 @@
+<h1>Stations</h1>
+<div class="list-group">
+  {{#each stations as |station|}}
+    {{#link-to "stations.station" station.id class="list-group-item"}}
+      <h4 class="list-group-item-heading">{{station.name}}</h4>
+      <p class="list-group-item-text">{{station.description}}</p>
+    {{/link-to}}
+  {{/each}}
+</div>
+
+<div class="station-list-controls">
+  {{#link-to "stations.add" class="btn btn-secondary btn-block"}}
+    <i class="fa fa-plus"></i> Add Station
+  {{/link-to}}
+</div>

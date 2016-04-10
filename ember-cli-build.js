@@ -1,10 +1,15 @@
 /*jshint node:true*/
 /* global require, module */
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+var Funnel = require('broccoli-funnel');
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
-    // Add options here
+    sassOptions: {
+      includePaths: [
+        'bower_components/bootstrap/scss'
+      ]
+    }
   });
 
   // Use `app.import` to add additional libraries to the generated
@@ -20,5 +25,13 @@ module.exports = function(defaults) {
   // please specify an object with the list of modules as keys
   // along with the exports of each module as its value.
 
-  return app.toTree();
+  var fonts = new Funnel('bower_components/font-awesome/fonts', {
+    srcDir: '/',
+    include: ['fontawesome-webfont.woff', 'fontawesome-webfont.woff2'],
+    destDir: '/fonts'
+  });
+
+  app.import('bower_components/font-awesome/css/font-awesome.min.css');
+
+  return app.toTree(fonts);
 };

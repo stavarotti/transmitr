@@ -2,7 +2,8 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'streamr',
+    modulePrefix: 'transmitr',
+    podModulePrefix: 'transmitr/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
