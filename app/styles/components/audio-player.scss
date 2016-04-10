@@ -1,0 +1,73 @@
+.audio-player {
+  button {
+    &.control {
+      vertical-align: middle;
+      background-color: transparent;
+      border: none;
+      color: white;
+      margin: 0 1%;
+      font-size: 1.2em;
+    }
+  }
+
+  .audio-player-controls {
+    color: white;
+    font-size: .8em;
+    width: 100%;
+    min-height: 40px;
+    padding: 10px 5px;
+    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.75);
+    z-index: 2147483647;
+
+    input[type=range] {
+      z-index: 3;
+      position: relative;
+      width: 75%;
+      border-radius: 2px;
+      vertical-align: middle;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      height: 1px;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .audio-player-play-toggle {
+    text-align: center;
+  }
+
+  .audio-player-volume-controls {
+    margin-top: 1em;
+
+    .mute {
+      width: 1.75em;
+    }
+  }
+
+  .card {
+    border: 1px solid transparent;
+  }
+
+  .card-img-top {
+    display: table;
+    height: 250px;
+    width: 100%;
+    background-color: #fafafa;
+    text-align: center;
+
+    i {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+
+  .list-group-item {
+    border-left: 0;
+    border-right: 0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+}

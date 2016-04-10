@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="pv">
+    <button type="button" class="sm-nav-toggle" onClick={{action "toggleNav"}} aria-expanded="{{if navOpen true false}}">
+      <span class="sr-only">Toggle navigation</span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    {{#link-to "application" class="brand"}}
+      <span>Transmitr</span>
+    {{/link-to}}
+  </div>
+  <div class="panel collapse" aria-expanded="{{if navOpen true false}}">
+    <ul class="nav">
+      <li>
+        {{link-to "Station List" "stations"}}
+      </li>
+      <li>
+        {{link-to "Favorites" "favorites"}}
+      </li>
+    </ul>
+  </div>
+</div>

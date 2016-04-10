@@ -1,0 +1,130 @@
+.main-nav {
+  background-color: #fff;
+  border: 1px solid transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-width: 0 0 1px;
+  letter-spacing: .15em;
+  min-height: 3.125rem;
+  margin-bottom: 0;
+  text-transform: uppercase;
+  z-index: 1000;
+
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+
+  &:first-child {
+    margin: 0 auto;
+    padding: 0 15px;
+  }
+
+  .pv {
+    margin-right: -0.625rem;
+    margin-left: -0.625rem;
+  }
+
+  .brand {
+    color: #333333;
+    float: left;
+    height: 50px;
+    line-height: 50px;
+    padding: 0px 10px;
+    text-decoration: none;
+  }
+
+  .container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .nav {
+    margin-left: -0.625rem;
+
+    li {
+      display: block;
+      position: relative;
+
+      a {
+        display: block;
+        padding: 14px 15px;
+        position: relative;
+        color: #777777;
+      }
+    }
+  }
+
+  .sm-nav-toggle {
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-color: transparent;
+    float: right;
+    margin: 8px 10px 8px 0;
+    padding: 9px 0;
+    position: relative;
+
+    &:focus {
+      background-color: transparent;
+      outline: 0;
+    }
+
+    span:not(.sr-only) {
+      background-color: #888888;
+      display: block;
+      width: 22px;
+      height: 2px;
+      border-radius: 1px;
+
+      & + span {
+        margin-top: 4px;
+      }
+    }
+  }
+
+  .panel[aria-expanded="true"] {
+    display: block;
+    height: auto;
+    top: 3rem;
+    width: 100%;
+
+    &:after {
+      height: 100vh;
+    }
+  }
+  .panel:after {
+    height: 50px;
+  }
+
+  form[role="search"] {
+    float: right;
+    margin-top: 10px;
+  }
+
+  @media (min-width: 48rem) {
+    .container {
+      padding-left: 0.9375rem;
+      padding-right: 0.9375rem;
+    }
+
+    .nav {
+      float: right;
+      margin: 0 -10px 0 0;
+
+      li {
+        float: left;
+      }
+    }
+
+    .panel {
+      border-top: 0;
+      display: block;
+      overflow: visible;
+      padding-bottom: 0;
+      width: auto;
+    }
+
+    .sm-nav-toggle {
+      display: none;
+    }
+  }
+}

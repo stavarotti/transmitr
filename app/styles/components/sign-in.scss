@@ -1,0 +1,20 @@
+.sign-in {
+  background-color: #f7f7f7;
+  border: 1px #ddd solid;
+  border-radius: 4px;
+  margin: 1rem auto 0;
+  max-width: 20rem;
+  padding: 1rem;
+
+  button[type="submit"] {
+    margin-bottom: 1rem;
+  }
+
+  label {
+    margin-bottom: 0;
+  }
+
+  legend {
+    font-weight: bold;
+  }
+}
