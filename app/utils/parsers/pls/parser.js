@@ -1,192 +1,107 @@
+import Ember from 'ember';
+
+const { camelize } = Ember.String;
+
 /**
-  A relatively simple parser that creates an object that resembles the one
-  below:
+  The type of playlist.
+
+  @public
+  */
+export const playlistType = 'pls';
+
+/**
+  A simple parser that takes a pls-formatted string and creates an object that
+  resembles the one below:
 
   {
     tracks: [{
       file: "<File#>",
       length: "<Length#>",
-      title: "<Title#>",
-      trackId: <#>
+      title: "<Title#>"
     }],
     numberOfEntries: "<NumberOfEntries>",
-    version: "2"
+    version: <version>
   }
+
+  For more on the pls format, see:
+  https://en.wikipedia.org/wiki/PLS_(file_format)
 
   @public
   @function
-  @param {Array} tokens The array of tokens to parse.
+  @param {String} rawPls The pls string to parse.
   @returns {Object} The playlist object as described in the above example.
   */
-export default function parser(tokens) {
-  const ALPHANUMERIC = 'alphanumeric';
-  const BRACKET = 'bracket';
-  const FILE = 'file';
-  const LENGTH = 'length';
-  const NEWLINE = 'newline';
-  const NUMBER_OF_ENTRIES = 'numberofentries';
-  const TITLE = 'title';
+export default function parser(rawPls = '') {
+  const NUMBER_OF_ENTRIES = 'Numberofentries';
+  const VERSION = 'Version';
 
-  // The token position
-  let currentPosition = 0;
-
-  // Get the length of the `tokens` array.
-  const TOKEN_LENGTH = tokens.length;
-
-  // Keeps track of the already created track objects.  The tokens are not
-  // not guaranteed to come in order, so we can not depend on a tuple
-  // in an order such as {File1, Title1, Length1}.
-  let existingTracks = {};
-
-  // The playlist object.  `numberOfEntries` and `version` have defaults since
-  // the values may or may not appear in the `tokens`. `version` is currently
-  // standardized to 2.
-  let playlist = {
-    header: '',
-    numberOfEntries: 0,
+  // The parsed pls representation.
+  let pls = {
+    numberofentries: 0,
+    playlistType,
     tracks: [],
-    version: '2'
+    version: 2
   };
 
-  // Loop through the tokens and update the `playlist` with the entries
-  // found in the tokens.
-  while (currentPosition < TOKEN_LENGTH) {
-    // Get a reference to the current token.
-    let token = tokens[currentPosition];
+  // If the header is not available, return the unpopulated pls object.
+  if (!/^\[playlist\]/.test(rawPls)) {
+    // Instead of throwing, log. Doesn't help to throw in user land.
+    console.error('Invalid pls file.  Received: ', rawPls);
+    return pls;
+  }
 
-    // Assumption is that brackets only exist to mark the header.
-    if (token.type === BRACKET && token.value === '[') {
-      // A string to store the header sequence.
-      let sequence = '';
+  // Track details and other relevant entries are separated by new lines.
+  // Let's get em.
+  let plsParts = rawPls.split(/\n/);
 
-      // Move on to the next the token.  Since we matched on the opening
-      // bracket we'll get the subsequent tokens until we arrive to the
-      // closing bracket.
-      token = tokens[++currentPosition];
+  // The playlist header is always the first entry, so let's remove it.
+  plsParts.unshift();
 
-      // Loop through each subsequent token until we reach the closing bracket.
-      while (token.type !== BRACKET && token.value !== ']') {
-        // Append the token value to the existing sequence.
-        sequence += token.value;
-        // Move to the next token.
-        token = tokens[++currentPosition];
-      }
+  // Keep a record of the tracks created. Used to avoid searching
+  // `pls.tracks` for already created track objects.
+  let createdTracks = {};
 
-      // Save the sequence to the header property on the playlist object.
-      playlist.header = sequence;
+  // Iterate through each entry and populate the pls object.
+  const TRACK_PROPERTY_MATCHER = /^(File|Length|Title)\d+/;
+  plsParts.forEach(entry => {
+    if (TRACK_PROPERTY_MATCHER.test(entry)) {
+      // Grab the key.
+      let key = entry.slice(0, entry.indexOf('='));
 
-      // Increment the current position so we can move to the next token.
-      currentPosition++;
-      // Continue to the next token.
-      continue;
-    }
+      // Grab the value
+      let value = entry.slice(entry.indexOf('=') + 1);
 
-    // A track has 3 attributes: File, Length, and Title.  Match on one of
-    // these values and add them to the track object.
-    const TRACK_ATTRIBUTE = /^(File|Length|Title)([0-9]+)?$/i;
-    if (token.type === ALPHANUMERIC && TRACK_ATTRIBUTE.test(token.value)) {
-      // For the current attribute, get numeric portion.  This value is the
-      // same for all attributes belonging to a particular track.  We
-      // extract the number so we can keep track of the track objects that
-      // have been created.
-      let existingTrackKey = '' + token.value.substring(
-        token.value.search(/[0-9]/)
-      );
+      // Get the property name value.
+      let trackPropertyName = camelize(key.substring(0, key.search(/\d/)));
 
-      // Used determine track property to update. Example value is File,
-      // Length, or Title.
-      let attributeName = token.value.substring(
-        0, token.value.search(/[0-9]/)
-      ).toLowerCase();
+      // Check for an existing track object.
+      let existingTrackKey = key.substring(key.search(/\d/));
+      if (createdTracks[existingTrackKey]) {
+        // Get the existing object.
+        let existingTrack = pls.tracks[createdTracks[existingTrackKey]];
 
-      // Value to store the track names and values.
-      let track;
-
-      // The attribute name (File|Length|Title) is usually followed by an
-      // equal-to operator and then the attribute value. Since we have not
-      // use for the operator, we'll skip it.
-      token = tokens[(currentPosition += 2)];
-
-      // Check to see if the track exists and if it does, update it with
-      // current token's value.
-      if (existingTracks[existingTrackKey]) {
-        // Get the existing track object.
-        track = playlist.tracks[existingTracks[existingTrackKey]];
-
-        // Always check to see if it's the correct type.
-        if (token.type === ALPHANUMERIC) {
-          switch (attributeName) {
-            case FILE:
-              track.file = token.value;
-              break;
-            case LENGTH:
-              track.length = token.value;
-              break;
-            case TITLE:
-              track.title = token.value;
-              break;
-            default:
-          }
-        }
+        // Save the value.
+        existingTrack[trackPropertyName] = value;
       } else {
-        // The track object doesn't exist, let's create it.
-        track = {
+        // Create the track object.
+        let track = {
           file: '',
-          length: 0,
+          length: -1,
           title: ''
         };
 
-        switch (attributeName) {
-          case FILE:
-            track.file = token.value;
-            break;
-          case LENGTH:
-            track.length = token.value;
-            break;
-          case TITLE:
-            track.title = token.value;
-            break;
-          default:
-        }
+        // Save the value.
+        track[trackPropertyName] = value;
 
-        // Add the track object to the tracks array, get its position, and
-        // update the track map.
-        existingTracks[existingTrackKey] = `${playlist.tracks.push(track) - 1}`;
+        // Add the track object to `pls.tracks` and save the insert position.
+        createdTracks[existingTrackKey] = pls.tracks.push(track) -1;
       }
-
-      currentPosition++;
-      continue;
+    } else if (entry.startsWith(NUMBER_OF_ENTRIES)) {
+      pls[camelize(NUMBER_OF_ENTRIES)] = entry.split('=')[1];
+    } else if (entry.startsWith(VERSION)) {
+      pls[camelize(VERSION)] = entry.split('=')[1];
     }
+  });
 
-    // Get the number of track entries.
-    if (token.type === ALPHANUMERIC && token.value.toLowerCase() === NUMBER_OF_ENTRIES) {
-
-      // The attribute name (File|Length|Title) is usually followed by an
-      // equal-to operator and then the attribute value. Since we have not
-      // use for the operator, we'll skip it.
-      playlist.numberOfEntries = tokens[(currentPosition += 2)].value;
-
-      currentPosition++;
-      continue;
-    }
-
-    // Get the version.
-    if (token.type === NUMBER_OF_ENTRIES && token.value.toLowerCase() === 'version') {
-      // The attribute name (File|Length|Title) is usually followed by an
-      // equal-to operator and then the attribute value. Since we have not
-      // use for the operator, we'll skip it.
-      playlist.version = tokens[(currentPosition += 2)].value;
-
-      currentPosition++;
-      continue;
-    }
-
-    // Ignore new lines as they aren't needed to create the  playlist object.
-    if (token.type === NEWLINE) {
-      currentPosition++;
-      continue;
-    }
-  }
-
-  return playlist;
+  return pls;
 }

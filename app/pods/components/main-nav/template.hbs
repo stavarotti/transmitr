@@ -1,22 +1,28 @@
 <div class="container">
-  <div class="pv">
+  <div class="pv clearfix">
     <button type="button" class="sm-nav-toggle" onClick={{action "toggleNav"}} aria-expanded="{{if navOpen true false}}">
       <span class="sr-only">Toggle navigation</span>
       <span></span>
       <span></span>
       <span></span>
     </button>
-    {{#link-to "application" class="brand"}}
-      <span>Transmitr</span>
-    {{/link-to}}
+    <span {{action 'close'}}>
+      {{#link-to "application" class="brand"}}
+        <span>Transmitr</span>
+      {{/link-to}}
+    </span>
   </div>
   <div class="panel collapse" aria-expanded="{{if navOpen true false}}">
     <ul class="nav">
       <li>
-        {{link-to "Station List" "stations"}}
+        <span {{action 'close'}}>
+          {{link-to "Station List" "stations"}}
+        </span>
       </li>
       <li>
-        {{link-to "Favorites" "favorites"}}
+        <span {{action 'close'}}>
+          {{link-to "Add Station" "stations.add"}}
+        </span>
       </li>
     </ul>
   </div>
