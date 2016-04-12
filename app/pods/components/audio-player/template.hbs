@@ -1,32 +1,20 @@
+<section class="station-details">
+  <h4>{{station.name}}</h4>
+</section>
+
 <div class="card">
   <div class="card-img-top">
     <i class="fa fa-music fa-5x"></i>
   </div>
-  <div>
-    <!-- Play/pause and volume controls -->
-    {{audio-player-controls
-      adjustVolume=(action 'adjustVolume')
-      toggleMute=(action 'toggleMute')
-      togglePlay=(action 'togglePlay')
-      currentVolume=currentVolume
-      isMuted=isMuted
-      isPlaying=isPlaying
-    }}
-  </div>
+  {{audio-player-controls
+    adjustVolume=(action 'adjustVolume')
+    toggleMute=(action 'toggleMute')
+    togglePlay=(action 'togglePlay')
+    currentVolume=currentVolume
+    isMuted=isMuted
+    isPlaying=isPlaying
+  }}
 </div>
-
-<!-- Track list displays list of tracks or image. -->
-{{audio-player-track-list
-  updateTrackList=(action 'updateTrackList')
-  trackList=trackList
-}}
-
-<!-- Progress for the current track -->
-{{#if currentFileHasDuration}}
-  <progress value="{{percentPlayed}}" max="100"></progress>
-{{/if}}
-
-
 
 <audio src="{{audioSource}}" autoplay
 volume={{currentVolume}} muted={{isMuted}}>

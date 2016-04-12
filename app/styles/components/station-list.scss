@@ -3,14 +3,15 @@
     font-size: 2em;
   }
 
-  .list-group-item {
-    border-left: 0;
-    border-right: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
+  .list-group-item-heading {
+    margin-bottom: 0;
   }
 
   .station-list-controls {
     margin-top: 2em;
+  }
+
+  .station-name {
+    margin-left: 0.75em;
   }
 }

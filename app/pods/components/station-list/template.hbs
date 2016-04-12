@@ -1,9 +1,11 @@
-<h1>Stations</h1>
 <div class="list-group">
+  <div class="list-group-item">
+    <h4 class="list-group-item-heading">Stations</h4>
+  </div>
   {{#each stations as |station|}}
     {{#link-to "stations.station" station.id class="list-group-item"}}
-      <h4 class="list-group-item-heading">{{station.name}}</h4>
-      <p class="list-group-item-text">{{station.description}}</p>
+      <i class="fa fa-youtube-play"></i>
+      <span class="station-name">{{station.name}}</span>
     {{/link-to}}
   {{/each}}
 </div>

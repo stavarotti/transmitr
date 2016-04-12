@@ -18,6 +18,8 @@
     padding: 10px 5px;
     background-color: rgba(0, 0, 0, 0.75);
     background-color: rgba(0, 0, 0, 0.75);
+    border-bottom-left-radius: 0.25em;
+    border-bottom-right-radius: 0.25em;
     z-index: 2147483647;
 
     input[type=range] {
@@ -47,14 +49,14 @@
   }
 
   .card {
-    border: 1px solid transparent;
+    // border: 1px solid transparent;
   }
 
   .card-img-top {
     display: table;
     height: 250px;
     width: 100%;
-    background-color: #fafafa;
+    background-color: transparent;
     text-align: center;
 
     i {
@@ -70,4 +72,7 @@
     border-top-right-radius: 0;
   }
 
+  .station-details {
+    text-align: center;
+  }
 }
