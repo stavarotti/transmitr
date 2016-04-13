@@ -1,11 +1,20 @@
 // Primary navigation
-@import "main-nav";
+@import 'main-nav';
+
+// Add station panel
+@import 'add-station';
 
 // Audio Player
-@import "audio-player";
+@import 'audio-player';
+
+// Loading
+@import 'loading';
+
+// Search station panel
+@import 'search-station';
 
 // Sign in page
-@import "sign-in";
+@import 'sign-in';
 
 // Station list
-@import "station-list";
+@import 'station-list';

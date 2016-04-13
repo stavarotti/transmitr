@@ -4,6 +4,8 @@ const { isEmpty } = Ember;
 
 export default Ember.Component.extend({
 
+  classNames: ['add-station'],
+
   invalidStationName: false,
 
   invalidPlaylistUrl: false,

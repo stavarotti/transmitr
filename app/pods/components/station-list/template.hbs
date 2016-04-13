@@ -2,7 +2,7 @@
   <div class="list-group-item">
     <h4 class="list-group-item-heading">Stations</h4>
   </div>
-  {{#each stations as |station|}}
+  {{#each sortedStationList as |station|}}
     {{#link-to "stations.station" station.id class="list-group-item"}}
       <i class="fa fa-youtube-play"></i>
       <span class="station-name">{{station.name}}</span>
