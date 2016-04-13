@@ -1,38 +1,37 @@
 .audio-player {
   button {
     &.control {
-      vertical-align: middle;
       background-color: transparent;
       border: none;
       color: white;
       margin: 0 1%;
-      font-size: 1.2em;
+      font-size: $size-20;
+      vertical-align: middle;
     }
   }
 
   .audio-player-controls {
-    color: white;
-    font-size: .8em;
-    width: 100%;
-    min-height: 40px;
+    background-color: rgba(0, 0, 0, 0.75);
+    background-color: rgba(0, 0, 0, 0.75);
+    border-bottom-left-radius: $size-4;
+    border-bottom-right-radius: $size-4;
+    color: $white;
+    min-height: $size-40;
     padding: 10px 5px;
-    background-color: rgba(0, 0, 0, 0.75);
-    background-color: rgba(0, 0, 0, 0.75);
-    border-bottom-left-radius: 0.25em;
-    border-bottom-right-radius: 0.25em;
-    z-index: 2147483647;
+    width: 100%;
+    z-index: 1000;
 
     input[type=range] {
-      z-index: 3;
-      position: relative;
-      width: 75%;
+      border: none;
       border-radius: 2px;
+      cursor: pointer;
+      height: 1px;
+      position: relative;
       vertical-align: middle;
+      width: 75%;
+      z-index: 3;
       -webkit-appearance: none;
       -moz-appearance: none;
-      height: 1px;
-      border: none;
-      cursor: pointer;
     }
   }
 
@@ -43,21 +42,22 @@
   .audio-player-volume-controls {
     margin-top: 1em;
 
+    input[type=range] {
+      display: none;
+    }
+
     .mute {
-      width: 1.75em;
+      display: none;
+      width: $size-28;
     }
   }
 
-  .card {
-    // border: 1px solid transparent;
-  }
-
   .card-img-top {
+    background-color: transparent;
     display: table;
     height: 250px;
-    width: 100%;
-    background-color: transparent;
     text-align: center;
+    width: 100%;
 
     i {
       display: table-cell;

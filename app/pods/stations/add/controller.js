@@ -7,6 +7,8 @@ export default Ember.Controller.extend({
 
   station: Ember.inject.service(),
 
+  showManualAdd: true,
+
   verifyPlaylistUrl(playlistUrl) {
     let url = this.get('proxy').getUrlWithProxy(playlistUrl);
 
@@ -30,7 +32,22 @@ export default Ember.Controller.extend({
             description: stationName,
             stream: playlistUrl
           });
+
+          // Persist to local storage.
+          this.get('station').saveStations();
         });
+    },
+
+    changePanel(panelName) {
+      if (panelName === 'manual') {
+        this.set('showManualAdd', true);
+      } else {
+        this.set('showManualAdd', false);
+      }
+    },
+
+    searchStation(stationName, playlistUrl) {
+      return this.send('addAction', stationName, playlistUrl);
     }
   }
 });

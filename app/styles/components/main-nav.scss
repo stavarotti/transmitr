@@ -1,41 +1,32 @@
 .main-nav {
-  background-color: #f5f5f5;
-  border: 1px solid transparent;
-  // border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  border-bottom: 1px solid #ddd;
-  border-width: 0 0 1px;
+  background-color: $lighter-gray;
+  border-bottom: 1px solid $medium-gray;
+  left: 0;
   letter-spacing: .15em;
-  min-height: 3.125rem;
+  min-height: $size-50;
   margin-bottom: 0;
-  text-transform: uppercase;
-  z-index: 1000;
-
   position: fixed;
+  text-decoration: none;
+  text-transform: uppercase;
   top: 0;
   width: 100%;
-  left: 0;
+  z-index: 1000;
 
   &:first-child {
     margin: 0 auto;
-    padding: 0 15px;
+    padding: 0 1em;
   }
 
   &.open {
     bottom: 0;
   }
 
-  .pv {
-    margin-right: -0.625rem;
-    margin-left: -0.625rem;
-  }
-
   .brand {
-    color: #333333;
-    float: left;
-    height: 50px;
-    line-height: 50px;
-    padding: 0px 10px;
-    text-decoration: none;
+    color: $dark-gray;
+    height: $size-50;
+    line-height: $size-50;
+    margin-left: $size-10;
+    padding: 0 $size-10;
   }
 
   .container {
@@ -44,19 +35,51 @@
   }
 
   .nav {
-    margin-left: -0.625rem;
+    margin-left: -$size-10;
 
     li {
       display: block;
       position: relative;
 
       a {
+        color: $gray;
         display: block;
         padding: 14px 15px;
         position: relative;
-        color: #777777;
       }
     }
+  }
+
+  .nav-controls {
+    float: left;
+    height: $size-50;
+    left: -7.5rem;
+    line-height: $size-50;
+    padding: 0 $size-10;
+    position: absolute;
+
+    &.hide {
+      left: -120px;
+      transition: 0.2s;
+    }
+
+    &.show {
+      left: 0;
+      transition: 0.2s;
+    }
+
+    a, a:hover {
+      text-decoration: none;
+    }
+
+    .nav-back-button {
+      text-transform: none;
+    }
+  }
+
+  .pv {
+    margin-right: -$size-10;
+    margin-left: -$size-10;
   }
 
   .sm-nav-toggle {
@@ -64,7 +87,7 @@
     border: 1px solid transparent;
     border-color: transparent;
     float: right;
-    margin: 8px 10px 8px 0;
+    margin: 7px 10px 8px 0;
     padding: 9px 0;
     position: relative;
 
@@ -74,9 +97,9 @@
     }
 
     span:not(.sr-only) {
-      background-color: #888888;
+      background-color: $light-gray;
       display: block;
-      width: 22px;
+      width: $size-22;
       height: 2px;
       border-radius: 1px;
 
@@ -89,6 +112,7 @@
   .panel[aria-expanded="true"] {
     display: block;
     height: auto;
+    position: absolute;
     top: 3rem;
     width: 100%;
 
@@ -96,19 +120,20 @@
       height: 100vh;
     }
   }
+
   .panel:after {
     height: 50px;
   }
 
   form[role="search"] {
     float: right;
-    margin-top: 10px;
+    margin-top: $size-10;
   }
 
   @media (min-width: 48rem) {
     .container {
-      padding-left: 0.9375rem;
-      padding-right: 0.9375rem;
+      padding-left: $size-15;
+      padding-right: $size-15;
     }
 
     .nav {

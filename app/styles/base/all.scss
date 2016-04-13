@@ -2,9 +2,13 @@
 
 body {
   font: {
-    family: 'Raleway', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    family: $font-stack;
   }
 
-  background-color: #fafafa;
-  padding-top: 60px;
+  background-color: $off-white;
+  padding-top: $size-60;
+}
+
+.text-center {
+  text-align: center;
 }

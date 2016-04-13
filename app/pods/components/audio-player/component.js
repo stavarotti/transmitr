@@ -17,7 +17,7 @@ export default Ember.Component.extend({
 
   isMuted: false,
 
-  isPlaying: true,
+  isPlaying: false,
 
   didInsertElement() {
     this._super(...arguments);

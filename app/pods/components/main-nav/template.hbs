@@ -6,11 +6,18 @@
       <span></span>
       <span></span>
     </button>
-    <span {{action 'close'}}>
-      {{#link-to "application" class="brand"}}
-        <span>Transmitr</span>
-      {{/link-to}}
-    </span>
+    <div class="nav-controls {{if isHome 'hide' 'show'}}">
+      <span {{action 'close'}} class="nav-back-button {{if isHome 'hide' 'show'}}">
+        {{#link-to "stations.index"}}
+          <i class="fa fa-angle-left" aria-hidden="true"></i> Stations
+        {{/link-to}}
+      </span>
+      <span {{action 'close'}}>
+        {{#link-to "application" class="brand"}}
+          <span>Transmitr</span>
+        {{/link-to}}
+      </span>
+    </div>
   </div>
   <div class="panel collapse" aria-expanded="{{if navOpen true false}}">
     <ul class="nav">
