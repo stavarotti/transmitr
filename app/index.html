@@ -6,25 +6,25 @@
     <title>Transmitr</title>
     <meta name="A pls/m3u player" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     {{content-for "head"}}
 
-    <link rel="stylesheet" href="assets/vendor.css">
-    <link rel="stylesheet" href="assets/transmitr.css">
-
+    <link rel="stylesheet" href="{{rootURL}}assets/vendor.css">
+    <link rel="stylesheet" href="{{rootURL}}assets/transmitr.css">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="apple-touch-startup-image" href="startup.png">
 
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    
     {{content-for "head-footer"}}
   </head>
   <body>
     {{content-for "body"}}
 
-    <script src="assets/vendor.js"></script>
-    <script src="assets/transmitr.js"></script>
+    <script src="{{rootURL}}assets/vendor.js"></script>
+    <script src="{{rootURL}}assets/transmitr.js"></script>
 
     {{content-for "body-footer"}}
   </body>

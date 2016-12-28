@@ -1,14 +1,51 @@
-@import url(https://fonts.googleapis.com/css?family=Raleway);
-
+/*
+  Base rules are the defaults. They are almost exclusively single element selectors but
+  it could include attribute selectors, pseudo-class selectors, child selectors or
+  sibling selectors.
+*/
 body {
-  font: {
-    family: $font-stack;
+  background-color: color($foreground-dark, '5');
+  font-family: 'Raleway', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+}
+
+html,
+body,
+body > .ember-view,
+.app-container,
+.main-container,
+.content-container {
+	height: 100%;
+}
+
+.text-light {
+  font-weight: 100;
+}
+
+a {
+  font-weight: 500;
+}
+
+a.accent {
+  color: color($accent, '400');
+  text-decoration: $link-decoration;
+
+  @include hover-focus {
+    color: darken(color($accent, '400'), 15%);
+    text-decoration: $link-hover-decoration;
   }
-
-  background-color: $off-white;
-  padding-top: $size-60;
 }
 
-.text-center {
-  text-align: center;
+a.no-underline {
+  &:hover {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+  &:focus {
+    text-decoration: none;
+  }
+  text-decoration: none;
 }
+
+

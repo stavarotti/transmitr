@@ -1,17 +1,20 @@
-// Bootstrap
-@import 'bootstrap';
+// Font awesome
+@import 'font-awesome';
 
 // Mixins and variables.
 @import 'definitions/all';
 
-// Base overrides
-@import 'base/all';
-
 // Current theme (colors, fonts, e.t.c)
 @import 'themes/all';
 
+// Bootstrap
+@import 'bootstrap';
+
+// Base overrides
+@import 'base/all';
+
 // General layout (page and sections)
-@import 'layout/all';
+@import 'sections/all';
 
 // Components
 @import 'components/all';
