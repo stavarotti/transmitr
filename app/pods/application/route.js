@@ -19,7 +19,7 @@ export default Ember.Route.extend({
             type: 'stations/station',
             attributes: {
               name: 'BBC 1',
-              description: 'BBC 1',
+              description: 'BBC Radio 1.',
               stream: 'http://www.radiofeeds.co.uk/bbcradio1.pls'
             }
           }, {

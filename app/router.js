@@ -7,12 +7,12 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('stations', { path: '/' }, function() {
+  this.route('stations', { path: '/'}, function() {
+    this.route('index', { path: '/'});
     this.route('station', { path: '/stations/:id' });
     this.route('add');
   });
 
-  this.route('favorites');
   this.route('about');
 });
 

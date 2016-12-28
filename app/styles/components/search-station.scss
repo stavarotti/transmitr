@@ -1,3 +1,47 @@
 .search-station {
   margin-top: 1em;
+
+  .results {
+    min-height: 5rem;
+    position: relative;
+
+    .loading {
+      background-color: #fafafa;
+      bottom: 0;
+      left: 0;
+      opacity: 0.5;
+      position: absolute;
+      right: 0;
+      text-align: center;
+      top: 0;
+      width: 100%;
+      z-index: 9999;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .media {
+      color: color($primary);
+      display: block;
+      border-bottom: 1px solid color($primary);;
+      padding: 0.5rem 0;
+      p {
+        margin: 0;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        width: 17rem;
+      }
+    }
+
+    .media-object {
+      color: color($primary);
+      height: 4rem;
+      width: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 }

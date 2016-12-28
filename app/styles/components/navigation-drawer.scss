@@ -33,10 +33,6 @@
 
   .navigation {
     list-style: none;
-    padding: 0 0 0 30px;
-    border-radius: 3px;
-    margin: 0.5rem 0 0;
-
     display: flex;
     flex-direction: column;
 
@@ -58,11 +54,13 @@
     a {
       letter-spacing: 1px;
       font-weight: 400;
+      padding-left: 1.875rem;
       -webkit-transition: background 0.3s, box-shadow 0.3s;
       transition: background 0.3s, box-shadow 0.3s;
 
       &:hover,
       &.active {
+        background-color: color($primary, '100');
         font-weight: bold;
       }
     }

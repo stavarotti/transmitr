@@ -1,6 +1,8 @@
 import Ember from 'ember';
+import routeList from '../../../enumerations/route-list';
 
 const {
+  computed,
   inject: {
     service
     }
@@ -24,6 +26,15 @@ export default Ember.Component.extend({
    * @type {Object}
    */
   navigation: service(),
+
+  router: service('-routing'),
+
+  currentRoute: computed('router.currentPath', {
+    get() {
+      const currentPath = this.get('router.currentPath');
+      return routeList.find((route => route.route === currentPath));
+    }
+  }),
 
   actions: {
     /**

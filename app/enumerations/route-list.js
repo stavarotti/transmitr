@@ -6,15 +6,21 @@
  * @type {Object[]}
  */
 export default [{
-  icon: 'fa-wrench',
-  name: 'Station List',
-  route: 'stations'
+  icon: 'fa-list',
+  name: 'Stations',
+  route: 'stations.index'
 }, {
-  icon: 'fa-th',
-  name: 'Favorites',
-  route: 'favorites'
-}, {
-  icon: 'fa-cogs',
+  icon: 'fa-plus',
   name: 'Add Station',
   route: 'stations.add'
 }];
+
+/*
+Station List
+Now Playing
+Favorites
+----
+Help
+*/
+
+// |||   < Previous   Current

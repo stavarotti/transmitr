@@ -8,6 +8,15 @@
       value=stationName
     }}
   </div>
+  <div class="form-group">
+    <label class="form-control-label" for="stationDescription">Station Description</label>
+    {{input
+      class='form-control'
+      id="stationDescription"
+      type="text"
+      value=stationDescription
+    }}
+  </div>
   <div class="form-group {{if invalidPlaylistUrl 'has-danger'}}">
     <label class="form-control-label" for="playlistUrl">Playlist URL</label>
     {{input

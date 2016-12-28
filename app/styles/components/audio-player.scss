@@ -3,7 +3,7 @@
     &.control {
       background-color: transparent;
       border: none;
-      color: white;
+      color: color($primary);
       margin: 0 1%;
       font-size: $size-20;
       vertical-align: middle;
@@ -11,11 +11,9 @@
   }
 
   .audio-player-controls {
-    background-color: rgba(0, 0, 0, 0.75);
-    background-color: rgba(0, 0, 0, 0.75);
     border-bottom-left-radius: $size-4;
     border-bottom-right-radius: $size-4;
-    color: $white;
+    color: color($primary);
     min-height: $size-40;
     padding: 10px 5px;
     width: 100%;
@@ -52,17 +50,24 @@
     }
   }
 
+  .card {
+    background-color: initial;
+    border: none;
+  }
+
+  .card-title {
+    border-bottom: 1px solid color($primary, '100');
+    padding-bottom: 1rem;
+  }
+
   .card-img-top {
     background-color: transparent;
-    display: table;
     height: 250px;
     text-align: center;
     width: 100%;
-
-    i {
-      display: table-cell;
-      vertical-align: middle;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .list-group-item {
@@ -73,6 +78,6 @@
   }
 
   .station-details {
-    text-align: center;
+    border-top: 1px solid color($primary, '100');
   }
 }

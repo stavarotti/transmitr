@@ -5,7 +5,11 @@
 */
 body {
   background-color: color($foreground-dark, '5');
-  font-family: 'Raleway', 'Helvetica Neue', 'Segoe UI', Arial, sans-serif;
+  color: color($primary);
+  font-family: "Helvetica Neue", "Calibri Light", Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: 0.02em;
 }
 
 html,

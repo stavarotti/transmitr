@@ -1,7 +1,7 @@
-<div class="text-center">
-  <div class="btn-group btn-group-sm switcher" role="group" aria-label="Switch Panels">
-    <button type="button" class="btn {{unless showManualAdd 'btn-secondary' 'btn-primary'}}" {{action 'changePanel' 'manual'}}>Manual</button>
+<div class="text-xs-center">
+  <div class="btn-group btn-group-md switcher" role="group" aria-label="Switch Panels">
     <button type="button" class="btn {{if showManualAdd 'btn-secondary' 'btn-primary'}}" {{action 'changePanel' 'search'}}>Search</button>
+    <button type="button" class="btn {{unless showManualAdd 'btn-secondary' 'btn-primary'}}" {{action 'changePanel' 'manual'}}>Manual</button>
   </div>
 </div>
 

@@ -1,17 +1,21 @@
-<div class="list-group">
-  <div class="list-group-item">
-    <h4 class="list-group-item-heading">Stations</h4>
-  </div>
-  {{#each sortedStationList as |station|}}
-    {{#link-to "stations.station" station.id class="list-group-item"}}
-      <i class="fa fa-youtube-play"></i>
-      <span class="station-name">{{station.name}}</span>
-    {{/link-to}}
-  {{/each}}
-</div>
+{{#each sortedStationList as |station|}}
+  {{#link-to "stations.station" station.id class="media"}}
+    <div class="media-left">
+      <a href="#">
+        <div class="media-object">
+          <i class="fa fa-2 fa-music"></i>
+        </div>
+      </a>
+    </div>
+    <div class="media-body">
+      <h4 class="media-heading">{{station.name}}</h4>
+      <p>{{station.description}}</p>
+    </div>
+  {{/link-to}}
+{{/each}}
 
 <div class="station-list-controls">
   {{#link-to "stations.add" class="btn btn-secondary btn-block"}}
-    <i class="fa fa-plus"></i> Add Station
+    <i class="fa fa-plus"></i> Add New Station
   {{/link-to}}
 </div>
