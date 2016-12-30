@@ -1,13 +1,19 @@
-<div class="container">
-  {{main-nav}}
+<div 
+  id="app-container" 
+  class="app-container 
+        {{if navigation.isNavigationDrawerOpen 'navigation-drawer-open'}}">
 
-  <main>
+  {{navigation-drawer isOpen=navigation.isNavigationDrawerOpen id="navigation-drawer"}}
+  
+  {{#main-container}}
+    {{site-head}}
+
     {{#if isLoading}}
       <div class="loading">
-        <i class="fa fa-refresh fa-spin fa-3x fa-fw margin-bottom"></i>
+        <i class="fa fa-refresh fa-spin fa-3 fa-fw"></i>
       </div>
     {{/if}}
 
     {{liquid-outlet}}
-  </main>
+  {{/main-container}}
 </div>

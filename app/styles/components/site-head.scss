@@ -1,0 +1,116 @@
+.site-head {
+  align-items: center;
+  background: color($primary);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.25);
+  display: flex;
+  height: 4rem;
+  width: 100%;
+  z-index: 1000;
+
+  -webkit-transition: 0.25s ease-in;
+  -o-transition: 0.25s ease-in;
+  transition: 0.25s ease-in;
+
+  .navigation-drawer-toggle {
+    background: transparent center center no-repeat;
+    color: $white;
+    cursor: pointer;
+    border: 0;
+    display: block;
+    overflow: hidden;
+    width: 2.75rem;
+    z-index: 2;
+    padding: 0;
+    margin: 0;
+    height: 2.75rem;
+    margin-left: 0.5250rem;
+  }
+
+  .primary {
+    display: flex;
+    align-items: center;
+    margin-right: 2.75rem;
+
+    button {
+      &:focus, &:hover {
+        i {
+          color: darken($white, 15%);
+        }
+      }
+    }
+  }
+
+  .secondary {
+    padding-right: 15px;
+    color: $white;
+    
+    h1 {
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+    .dropdown {
+      i:first-child {
+        color: $white;
+      }
+      a {
+        &:focus, &:hover {
+          i:first-child {
+            color: darken($white, 15%);
+          }
+        }
+      }
+      .dropdown-item {
+        color: color($primary, '800');
+        i {
+          color: color($primary, '800');
+        }
+      }
+    }
+    .tag.tag-header {
+      background-color: color($accent, '400');
+      color: color($primary, '800');
+      font-size: .8em;
+    }
+    .icon {
+      color: $white;
+    }
+  }
+
+  &.fixed-header {
+    top: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+  }
+
+  .action-bar {
+    margin-top: 1.2em;
+    margin-right: 0.5em;
+    a {
+      &:focus, &:hover {
+        .icon {
+          color: darken($white, 15%);
+        }
+        .tag-header {
+          background-color: darken(color($accent, '400'), 15%);
+        }
+      }
+      margin-right: 1em;
+    }
+  }
+
+  .site-heading {
+    color: $white;
+    a {
+      &:focus, &:hover {
+        color: darken($white, 15%);
+        .icon {
+          color: darken($white, 15%);
+        }
+      }
+    }
+  }
+}

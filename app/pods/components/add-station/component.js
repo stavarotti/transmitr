@@ -14,6 +14,8 @@ export default Ember.Component.extend({
 
   stationName: '',
 
+  stationDescription: '',
+
   playlistUrlClassNames: Ember.computed('invalidPlaylistUrl', {
     get() {
       let classNames = 'form-control';
@@ -46,6 +48,7 @@ export default Ember.Component.extend({
 
   resetForm() {
     this.setProperties({
+      stationDescription: '',
       stationName: '',
       playlistUrl: '',
       showSaveStationErrorMessage: false
@@ -54,6 +57,7 @@ export default Ember.Component.extend({
 
   actions: {
     addStation() {
+      let stationDescription = this.get('stationDescription');
       let stationName = this.get('stationName');
       let playlistUrl = this.get('playlistUrl');
 
@@ -75,7 +79,7 @@ export default Ember.Component.extend({
           showSaveStationErrorMessage: false
         });
 
-        this.attrs.addStation(stationName, playlistUrl)
+        this.attrs.addStation(stationName, stationDescription, playlistUrl)
           .then(() => {
             this.setProperties({
               showSaveStationSuccessMessage: true,

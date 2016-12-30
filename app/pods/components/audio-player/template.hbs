@@ -1,19 +1,18 @@
-<section class="station-details">
-  <h4>{{station.name}}</h4>
-</section>
-
 <div class="card">
-  <div class="card-img-top">
-    <i class="fa fa-music fa-5x"></i>
+  <h2 class="card-title text-xs-center">{{station.name}}</h2>
+  <div class="card-block">
+    {{audio-player-controls
+      adjustVolume=(action 'adjustVolume')
+      toggleMute=(action 'toggleMute')
+      togglePlay=(action 'togglePlay')
+      currentVolume=currentVolume
+      isMuted=isMuted
+      isPlaying=isPlaying
+    }}
   </div>
-  {{audio-player-controls
-    adjustVolume=(action 'adjustVolume')
-    toggleMute=(action 'toggleMute')
-    togglePlay=(action 'togglePlay')
-    currentVolume=currentVolume
-    isMuted=isMuted
-    isPlaying=isPlaying
-  }}
+  <div class="card-block station-details text-xs-center">
+    <p class="card-text">{{station.description}}</p>
+  </div>
 </div>
 
 <audio src="{{audioSource}}" volume={{currentVolume}} muted={{isMuted}}>

@@ -1,6 +1,11 @@
 import Ember from 'ember';
 
-const { isEmpty } = Ember;
+const {
+  isEmpty,
+  Logger: {
+    error
+  }
+} = Ember;
 
 /**
   The type of playlist.
@@ -43,7 +48,7 @@ export default function parser(rawM3u = '') {
   // If the header is not available, return the unpopulated pls object.
   if (!/^\#EXTM3U/.test(rawM3u)) {
     // Instead of throwing, log. Doesn't help to throw in user land.
-    console.error('Invalid m3u file.  Received: ', rawM3u);
+    error('Invalid m3u file.  Received: ', rawM3u);
     return m3u;
   }
 

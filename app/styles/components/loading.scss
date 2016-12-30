@@ -1,12 +1,15 @@
 .loading {
-  background-color: $off-white;
+  background-color: #fafafa;
   bottom: 0;
   left: 0;
   opacity: 0.5;
   position: fixed;
   right: 0;
   text-align: center;
-  top: 50px;
+  top: 4rem;
   width: 100%;
   z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

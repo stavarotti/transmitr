@@ -1,10 +1,33 @@
 .station-list {
+  a {
+    text-decoration: none;
+  }
+
   h1 {
     font-size: 2em;
   }
 
-  .list-group-item-heading {
-    margin-bottom: 0;
+  .media {
+    color: color($primary);
+    display: block;
+    border-bottom: 1px solid color($primary);;
+    padding: 0.5rem 0;
+    p {
+      margin: 0;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      width: 17rem;
+    }
+  }
+
+  .media-object {
+    color: color($primary);
+    height: 4rem;
+    width: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .station-list-controls {

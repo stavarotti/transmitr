@@ -1,6 +1,13 @@
 import Ember from 'ember';
 
-const { camelize } = Ember.String;
+const {
+  String: {
+    camelize
+  },
+  Logger: {
+    error
+  }
+} = Ember;
 
 /**
   The type of playlist.
@@ -46,7 +53,7 @@ export default function parser(rawPls = '') {
   // If the header is not available, return the unpopulated pls object.
   if (!/^\[playlist\]/.test(rawPls)) {
     // Instead of throwing, log. Doesn't help to throw in user land.
-    console.error('Invalid pls file.  Received: ', rawPls);
+    error('Invalid pls file.  Received: ', rawPls);
     return pls;
   }
 
@@ -94,7 +101,7 @@ export default function parser(rawPls = '') {
         track[trackPropertyName] = value;
 
         // Add the track object to `pls.tracks` and save the insert position.
-        createdTracks[existingTrackKey] = pls.tracks.push(track) -1;
+        createdTracks[existingTrackKey] = pls.tracks.push(track) - 1;
       }
     } else if (entry.startsWith(NUMBER_OF_ENTRIES)) {
       pls[camelize(NUMBER_OF_ENTRIES)] = entry.split('=')[1];
