@@ -32,6 +32,13 @@ export default Ember.Component.extend({
   currentRoute: computed('router.currentPath', {
     get() {
       const currentPath = this.get('router.currentPath');
+
+      if (currentPath === 'stations.station') {
+        return {
+          name: 'Now Playing'
+        };
+      }
+
       return routeList.find((route => route.route === currentPath));
     }
   }),
