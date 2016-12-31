@@ -1,13 +1,23 @@
-/*jshint node:true*/
-/* global require, module */
-var Funnel = require('broccoli-funnel');
-var EmberApp = require('ember-cli/lib/broccoli/ember-app');
+/*eslint-disable */
+const EmberApp = require("ember-cli/lib/broccoli/ember-app");
+const Funnel = require('broccoli-funnel');
+const env = process.env.EMBER_ENV;
+
+require("dotenv").config({
+    path: `.env.${env}`
+});
 
 module.exports = function(defaults) {
   var app = new EmberApp(defaults, {
     // Babel Options
     babel: {
       optional: ['es7.decorators']
+    },
+
+    // Fingerprinting
+    fingerprint: {
+        exclude: ["assets/icons/"],
+        enabled: (env === "production" || env === "staging"),
     },
 
     // Sass Options

@@ -4,11 +4,21 @@
   },
   "hosting": {
     "public": "dist",
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [{
+      "source": "**",
+      "destination": "/app.html"
+    }],
+    "headers": [{
+      "source" : "offline-support.js",
+      "headers" : [ {
+        "key" : "Cache-Control",
+        "value" : "private, max-age=0, no-cache"
+      }]
+    }]
   }
 }

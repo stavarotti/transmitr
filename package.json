@@ -12,11 +12,15 @@
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember test"
+    "test": "ember test",
+    "deploy": "rm -rf dist/ && ember build && firebase use dev && firebase deploy",
+    "deploy:prod": "rm -rf dist/ && ember build --environment=production && firebase use prod && firebase deploy"
   },
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
     "broccoli-funnel": "^1.1.0",
+    "broccoli-serviceworker": "0.1.4",
+    "dotenv": "^2.0.0",
     "ember-ajax": "^2.4.1",
     "ember-cli": "2.10.0",
     "ember-cli-app-version": "^2.0.0",
