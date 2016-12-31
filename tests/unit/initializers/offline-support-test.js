@@ -1,5 +1,5 @@
 import Ember from 'ember';
-import { initialize } from 'transmitr/initializers/offline-support';
+import { initialize } from 'transmittr/initializers/offline-support';
 import { module, test } from 'qunit';
 import destroyApp from '../../helpers/destroy-app';
 

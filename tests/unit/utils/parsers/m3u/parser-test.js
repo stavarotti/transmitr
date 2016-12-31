@@ -1,4 +1,4 @@
-import m3uParser from 'transmitr/utils/parsers/m3u/parser';
+import m3uParser from 'transmittr/utils/parsers/m3u/parser';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | parsers/m3u/parser');
