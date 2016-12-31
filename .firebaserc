@@ -1,8 +1,8 @@
 {
   "projects": {
-    "dev": "transmitr-dev",
-    "offline": "transmitr-offline",
-    "staging": "transmitr-staging",
-    "prod": "transmitr"
+    "dev": "transmittr-88527-dev",
+    "offline": "transmittr-88527-offline",
+    "staging": "transmittr-88527-staging",
+    "prod": "transmittr-88527"
   }
 }

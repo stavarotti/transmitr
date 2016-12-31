@@ -1,4 +1,4 @@
-import parsersPlsParser from 'transmitr/utils/parsers/pls/parser';
+import parsersPlsParser from 'transmittr/utils/parsers/pls/parser';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | parsers/pls/parser');

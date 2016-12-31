@@ -1,4 +1,4 @@
-import generateGuid from 'transmitr/utils/generate-guid';
+import generateGuid from 'transmittr/utils/generate-guid';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | generate guid');

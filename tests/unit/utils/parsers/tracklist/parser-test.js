@@ -1,4 +1,4 @@
-import parsersTracklistParser from 'transmitr/utils/parsers/tracklist/parser';
+import parsersTracklistParser from 'transmittr/utils/parsers/tracklist/parser';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | parsers/tracklist/parser');

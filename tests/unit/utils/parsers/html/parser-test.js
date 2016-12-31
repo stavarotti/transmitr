@@ -1,4 +1,4 @@
-import parsersHtmlParser from 'transmitr/utils/parsers/html/parser';
+import parsersHtmlParser from 'transmittr/utils/parsers/html/parser';
 import { module, test } from 'qunit';
 
 module('Unit | Utility | parsers/html/parser');
