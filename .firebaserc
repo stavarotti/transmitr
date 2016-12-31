@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "transmitr-c75f2"
+    "dev": "transmitr-dev",
+    "offline": "transmitr-offline",
+    "staging": "transmitr-staging",
+    "prod": "transmitr"
   }
 }
