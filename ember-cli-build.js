@@ -39,7 +39,7 @@ module.exports = function(defaults) {
   // Font Awesome
   var fonts = new Funnel('bower_components/font-awesome', {
     srcDir: '/',
-    include: ['**/*.woff'],
+    include: ['**/*.woff2',],
     destDir: '/'
   });
 

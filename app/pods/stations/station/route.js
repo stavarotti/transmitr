@@ -19,7 +19,7 @@ export default Ember.Route.extend({
 
     // Get the station's playlist and parse it.
     let plsDetails = this.get('station')
-      .getParsedPlaylist(station.get('stream'));
+      .getParsedPlaylist(station.get('location'));
 
     return Ember.RSVP.hash({
       plsDetails,
