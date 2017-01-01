@@ -4,7 +4,20 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'transmittr',
     podModulePrefix: 'transmittr/pods',
-    environment: environment,
+    environment,
+    contentSecurityPolicy: {
+      "default-src": "'self'",
+      "frame-src": "'self' https://*.firebaseio.com",
+      "connect-src": "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      "script-src": "'self' 'unsafe-inline' https://*.firebaseio.com https://www.google-analytics.com",
+      "img-src": "'self' data: https://www.google-analytics.com"
+    },
+    contentSecurityPolicyMeta: true,
+    firebase: {
+      apiKey: process.env.FIREBASE_API_KEY,
+      databaseURL: `https://${process.env.FIREBASE_APP_NAME}.firebaseio.com`,
+    },
+    GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -54,10 +67,10 @@ module.exports = function(environment) {
     serviceWorkerFile: "offline-support.js",
     includeRegistration: false, // registering in app/initializers/offline-support
     precacheURLs: [
-      "/app.html",
+      "/index.html",
     ],
     fallback: [
-      "/(.*) /app.html",
+      "/(.*) /index.html",
     ],
   };
 

@@ -1,7 +1,13 @@
 import DS from 'ember-data';
 
-export default DS.Model.extend({
-  name: DS.attr('string'),
-  description: DS.attr('string'),
-  stream: DS.attr('string')
+const { attr, Model } = DS;
+
+export default Model.extend({
+  bitRate: attr('number'),
+  dateAdded: attr('date'),
+  description: attr('string'),
+  genre: attr('string'),
+  location: attr('string'),
+  name: attr('string'),
+  persistentId: attr('string')
 });
