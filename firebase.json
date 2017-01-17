@@ -31,8 +31,8 @@
         "key": "Cache-Control",
         "value": "private, max-age=0, no-cache"
       }]
-    }]
-  },
-  "cleanUrls": true,
-  "trailingSlash": false
+    }],
+    "cleanUrls": true,
+    "trailingSlash": false
+  }
 }
