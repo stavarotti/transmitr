@@ -1,83 +1,90 @@
 .audio-player {
-  button {
-    &.control {
-      background-color: transparent;
-      border: none;
-      color: color($primary);
-      margin: 0 1%;
-      font-size: $size-20;
-      vertical-align: middle;
-    }
-  }
+  background-color: #fff;
+  position: absolute;
 
-  .audio-player-controls {
-    border-bottom-left-radius: $size-4;
-    border-bottom-right-radius: $size-4;
-    color: color($primary);
-    min-height: $size-40;
-    padding: 10px 5px;
+  &.mini {
+    background: #f9f9f9;
+    bottom: 0;
     width: 100%;
-    z-index: 1000;
-
-    input[type=range] {
-      border: none;
-      border-radius: 2px;
-      cursor: pointer;
-      height: 1px;
-      position: relative;
-      vertical-align: middle;
-      width: 75%;
-      z-index: 3;
-      -webkit-appearance: none;
-      -moz-appearance: none;
-    }
+    border-top: 1px solid #e0e0e3;
+    position: fixed;
   }
 
-  .audio-player-play-toggle {
-    text-align: center;
-  }
-
-  .audio-player-volume-controls {
-    margin-top: 1em;
-
-    input[type=range] {
-      display: none;
-    }
-
-    .mute {
-      display: none;
-      width: $size-28;
-    }
-  }
-
-  .card {
-    background-color: initial;
-    border: none;
-  }
-
-  .card-title {
-    border-bottom: 1px solid color($primary, '100');
-    padding-bottom: 1rem;
-  }
-
-  .card-img-top {
-    background-color: transparent;
-    height: 250px;
-    text-align: center;
+  &.full {
+    border-top-left-radius: 0.25rem;
+    border-top-right-radius: 0.25rem;
+    top: 0;
     width: 100%;
+    height: 100vh;
+    z-index: 3;
+    background: #fff;
+    position: fixed;
+  }
+
+  .mini-player {
     display: flex;
+    padding: 0.5rem 0 0.5rem 1rem;
     align-items: center;
-    justify-content: center;
+
+    .mini-player-actions {
+      display: flex;
+      flex-grow: 1;
+      justify-content: space-around;
+    }
+
+    .mini-player-toggle,
+    .mini-player-play-toggle {
+      i {
+        font-size: 2rem;
+      }
+    }
+
+    .mini-player-station-image {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 0.25rem;
+      flex-shrink: 0;
+      height: 2.5rem;
+      margin-right: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 2.5rem;
+    }
+
+    .mini-player-station-name {
+      margin-right: 1rem;
+    }
   }
 
-  .list-group-item {
-    border-left: 0;
-    border-right: 0;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-  }
+  .full-player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
 
-  .station-details {
-    border-top: 1px solid color($primary, '100');
+    .full-player-station-name {
+      border-bottom: 1px solid #e0e0e3;
+      padding-bottom: 1rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    .full-player-play-toggle {
+      font-size: 12rem;
+    }
+
+    .full-player-station-details {
+      border-top: 1px solid #e0e0e3;
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    .full-player-volume-controls {
+      display: none;
+    }
+
+    .full-player-toggle {
+      font-size: 2rem;
+    }
   }
 }

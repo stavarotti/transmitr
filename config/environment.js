@@ -1,23 +1,9 @@
-/* jshint node: true */
+/* eslint-env node */
 
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'transmittr',
-    podModulePrefix: 'transmittr/pods',
-    environment,
-    contentSecurityPolicy: {
-      "default-src": "'self'",
-      "frame-src": "'self' https://*.firebaseio.com",
-      "connect-src": "'self' https://auth.firebase.com wss://*.firebaseio.com",
-      "script-src": "'self' 'unsafe-inline' https://*.firebaseio.com https://www.google-analytics.com",
-      "img-src": "'self' data: https://www.google-analytics.com"
-    },
-    contentSecurityPolicyMeta: true,
-    firebase: {
-      apiKey: process.env.FIREBASE_API_KEY,
-      databaseURL: `https://${process.env.FIREBASE_APP_NAME}.firebaseio.com`,
-    },
-    GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
+    environment: environment,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -59,20 +45,6 @@ module.exports = function(environment) {
   if (environment === 'production') {
 
   }
-
-  // Service Worker
-  ENV.serviceWorker = {
-    enabled: true,
-    debug: true,
-    serviceWorkerFile: "offline-support.js",
-    includeRegistration: false, // registering in app/initializers/offline-support
-    precacheURLs: [
-      "/index.html",
-    ],
-    fallback: [
-      "/(.*) /index.html",
-    ],
-  };
 
   return ENV;
 };

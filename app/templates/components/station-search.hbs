@@ -1,0 +1,38 @@
+<div class="station-search-box">
+  <form {{action "onSearch" on="submit"}}>
+    <div class="form-group">
+      <label class="sr-only" for="search-box">Enter station name</label>
+      {{input 
+        id="search-box" 
+        class="form-control" 
+        value=searchTerm 
+        placeholder="Enter station name"
+        key-up=(action "onSearch")  
+      }}
+    </div>
+  </form>
+</div>
+
+<div class="station-search-results">
+  {{#unless canSearch}}
+    <p class="station-search-hint">{{remaingCharacatersMessage}}.</p>
+  {{else}}
+    {{#if isLoading}}
+      <p class="loading-results">Loading...</p>
+    {{else}}
+      {{#if stations.length}}
+        {{table-view 
+          content=stations 
+          isGrouped=true
+          groupKey="genre"
+          showRowImageView=true
+          tableTitle="Saved Stations"
+          onRowAction=(action "onAddStation")
+          onRowRemoveAction=(action "noop")
+        }}
+      {{else}}
+        <p class="no-results-message">No stations found.</p>
+      {{/if}}
+    {{/if}}
+  {{/unless}}
+</div>

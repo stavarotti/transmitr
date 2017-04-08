@@ -1,0 +1,20 @@
+{{! Previous screen back button. }}
+<div class="navigation-bar-lhs">
+  {{#if hasPreviousScreen}} {{#link-to "my-stations" class="navigation-bar-back-control"}}
+  <i class="icon-angle-left"></i>
+  <span>Back</span> {{/link-to}} {{/if}}
+</div>
+
+{{! Current screen title. }}
+<div class="navigation-bar-middle">
+  <h1 class="navigation-bar-title">{{currentRouteName}}</h1>
+</div>
+
+{{! Current screen actions. }}
+<div class="navigation-bar-rhs">
+  {{#unless hasPreviousScreen}}
+    <button {{action attrs.onToggleEdit}}>
+      {{#if isEditing}}Done{{else}}Edit{{/if}}
+    </button> 
+  {{/unless}}
+</div>

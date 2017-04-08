@@ -1,0 +1,78 @@
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #efeff4;
+  box-sizing: border-box;
+  color: #333;
+  font-family: "SF Pro Text","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+[data-ember-action], a, button, input, .link {
+  cursor: pointer;
+}
+
+button, input, optgroup, select, textarea {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  padding: 0;
+  background: none;
+  border: none;
+}
+
+main {
+  margin-top: 4rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: .5rem .75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  color: #464a4c;
+  background-color: #fff;
+  background-image: none;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: .25rem;
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s
+}
+
+.help-block {
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  color: #737373;
+}
+
+.hide {
+  display: none;
+  visibility: hidden;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}

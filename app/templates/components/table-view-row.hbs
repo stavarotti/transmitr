@@ -1,0 +1,38 @@
+{{#if isEditing}}
+  <button {{action attrs.onRowRemoveAction model}} class="remove">
+    <i class="icon-minus-circled"></i>
+  </button>
+{{else}}
+  {{#if showImageView}}
+    {{#if imageViewURL}}
+      <div class="image-view">
+        <img src={{imageViewURL}}>
+      </div>
+    {{else}}
+      <div class="image-placeholder"></div>
+    {{/if}}
+  {{/if}}
+{{/if}}
+
+<div class="row-content">
+  <div class="group">
+    <div class="title">{{title}}</div>
+    {{#if showSubTitle}}
+      <div class="sub-title">{{subTitle}}</div>
+    {{/if}}
+  </div>
+
+  {{#if showAttribute}}
+    <div class="attribute"></div>
+  {{/if}}
+
+  {{#if isEditing}}
+
+  {{else}}
+    {{#if showArrowView}}
+      <div class="arrow-view">
+        <i class="icon-angle-right"></i>
+      </div>
+    {{/if}}
+  {{/if}}
+</div>
