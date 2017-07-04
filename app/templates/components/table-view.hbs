@@ -1,0 +1,60 @@
+{{#if isGrouped}}
+  {{#each-in parsedTableContent as |title group|}}
+    <div class="table-view-group-container">
+      {{table-view-group-header value=title}}
+
+      <div class="table-view-body">
+        {{#each group as |row|}}
+          {{table-view-row 
+            isEditing=isEditing
+            model=row 
+            onRowAction=(action onRowAction)
+            onRowRemoveAction=(action onRowRemoveAction)
+            showImageView=showRowImageView
+          }}
+        {{/each}}
+
+        {{#unless isEditing}}
+          {{#if showDefaultRow}}
+            {{table-view-row 
+              onRowAction=(action onRowDefaultAction)
+              showArrowView=true
+              showImageView=false
+              title=rowDefaultTitle
+            }}
+          {{/if}}
+        {{/unless}}
+      </div>
+
+      {{table-footer}}
+    </div>
+  {{/each-in}}
+{{else}}
+  <div class="table-view-container">
+    {{table-view-title value=tableTitle}}
+
+    <div class="table-view-body">
+      {{#each parsedTableContent as |row|}}
+        {{table-view-row 
+          isEditing=isEditing
+          model=row 
+          onRowAction=(action onRowAction)
+          onRowRemoveAction=(action onRowRemoveAction)
+          showArrowView=true
+          showImageView=showRowImageView
+        }}
+      {{/each}}
+
+      {{#unless isEditing}}
+        {{#if showDefaultRow}}
+          {{table-view-row 
+            onRowAction=(action onRowDefaultAction)
+            showArrowView=true
+            showImageView=false
+            title=rowDefaultTitle
+          }}
+        {{/if}}
+      {{/unless}}
+    </div>
+  </div>
+{{/if}}

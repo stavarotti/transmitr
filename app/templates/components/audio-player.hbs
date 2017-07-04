@@ -1,0 +1,57 @@
+{{#if isMiniPlayerActive}}
+  <div class="mini-player">
+    <div class="mini-player-station-image">
+      <i class="icon-music"></i>
+    </div>
+    <div class="mini-player-station-name">{{station.name}}</div>
+    <div class="mini-player-actions">
+      <button class="mini-player-play-toggle" {{action "onTogglePlay"}} disabled={{if isLoadingStation 'disabled'}}>
+        <i class={{playIcon}}></i>
+      </button>
+      <button class="mini-player-toggle" {{action "onToggleMiniPlayer"}}>
+        <i class="icon-angle-up"></i>
+      </button>
+    </div>
+  </div>
+{{else}}
+  <div class="full-player">
+    <div class="full-player-toggle">
+      <button {{action "onToggleMiniPlayer"}}>
+        <i class="icon-angle-down"></i>
+      </button>
+    </div>
+
+    <div class="full-player-station-name">
+      <h2>{{station.name}}</h2>
+    </div>
+
+    <div class="full-player-actions">
+      <button class="full-player-play-toggle" {{action "onTogglePlay"}} disabled={{if isLoadingStation 'disabled'}}>
+        <i class={{playIcon}}></i>
+      </button>
+
+      <div class="full-player-volume-controls">
+        <button class="full-player-mute-toggle" {{action "onToggleMute"}}>
+          <i class={{if isMuted "icon-volume-off" "icon-volume-on"}}></i>
+        </button>
+        <input
+          type="range"
+          min="0"
+          max="1"
+          name="volumeSlider"
+          step="0.1"
+          value={{currentVolume}}
+          oninput={{action "onAdjustVolume" value="target.value"}}
+        />
+      </div>
+    </div>
+
+    <div class="full-player-station-details">
+      <p>{{station.description}}</p>
+    </div>
+  </div>
+{{/if}}
+
+<audio src={{audioSource}} volume={{currentVolume}} muted={{isMuted}} preload="none">
+  Your browser does not support the <code>audio</code> element.
+</audio>

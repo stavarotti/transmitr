@@ -1,0 +1,45 @@
+.station-search {
+  width: 100%;
+  height: calc(100% - 4rem);
+  top: 3.5rem;
+  position: absolute;
+  background: #efeff4;
+
+  .station-search-box {
+    background: #f9f9f9;
+    padding: 0.5rem 1rem;
+
+    input {
+      width: 100%;
+      border-radius: 4px;
+      font-size: 1rem;
+
+      &::-webkit-input-placeholder {
+        text-align: center;
+      }
+
+      &::-moz-placeholder {
+        text-align: center;  
+      }
+
+      &:-ms-input-placeholder {  
+        text-align: center; 
+      }
+    }
+  }
+
+  .station-search-hint {
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  .loading-results {
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+  .no-results-message {
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+}
