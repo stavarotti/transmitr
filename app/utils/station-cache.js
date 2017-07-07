@@ -1,20 +1,36 @@
 /**
+ * The current cache version.
+ */
+const CACHE_VERSION = 2;
+
+/**
  * Returns all saved stations.
  * 
  * @public
- * @function getAll
+ * @function get
  * @returns all saved stations.
  */
 export function get() {
-  let stations = window.localStorage.getItem('stations');
+  let stations;
 
-  if (stations !== null) {
-    let stationList = JSON.parse(stations);
+  let storedStations = window.localStorage.getItem('stations');
 
-    return Array.isArray(stationList) ? stationList : [];
+  if (storedStations !== null) {
+    let parsedStations = JSON.parse(storedStations);
+
+    if (typeof parsedStations === 'object') {
+      // Detected new version.
+      stations = parsedStations.stations;
+    } else if (Array.isArray(parsedStations)) {
+      stations = parsedStations;
+    } else {
+      stations = [];
+    }
+  } else {
+    stations = [];
   }
 
-  return [];
+  return stations;
 }
 
 /**
@@ -27,7 +43,10 @@ export function get() {
 export function replaceAll(stations) {
   window.localStorage.setItem(
     'stations',
-    JSON.stringify(stations)
+    JSON.stringify({
+      version: CACHE_VERSION,
+      stations
+    })
   );
 }
 
@@ -42,7 +61,10 @@ export function save(...stations) {
   let savedStations = get();
   window.localStorage.setItem(
     'stations',
-    JSON.stringify([...savedStations, ...stations])
+    JSON.stringify({
+      version: CACHE_VERSION,
+      stations: [...savedStations, ...stations]
+    })
   );
 }
 

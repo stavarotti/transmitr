@@ -1,44 +1,44 @@
 /* eslint-env node */
 'use strict';
 
-const EmberApp = require("ember-cli/lib/broccoli/ember-app");
-const Funnel = require("broccoli-funnel");
+const EmberApp = require('ember-cli/lib/broccoli/ember-app');
+const Funnel = require('broccoli-funnel');
 const env = process.env.EMBER_ENV;
 
-require("dotenv").config({
+require('dotenv').config({
   path: `.env.${env}`
 });
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   var app = new EmberApp(defaults, {
     // Babel Options
     'ember-cli-babel': {
-      optional: ["es7.decorators"]
+      optional: ['es7.decorators']
     },
 
     // Fingerprinting
     fingerprint: {
-      exclude: ["assets/icons/"],
-      enabled: env === "production" || env === "staging"
+      exclude: ['assets/icons/'],
+      enabled: env === 'production' || env === 'staging'
     },
 
     // Sass Options
     sassOptions: {
-      extension: "scss"
+      extension: 'scss'
     },
 
     // Source Map Options
     sourcemaps: {
       enabled: true,
-      extensions: ["js"]
+      extensions: ['js']
     }
   });
 
   // Fontello
-  var fonts = new Funnel("vendor/fontello", {
-    srcDir: "/",
-    include: ["**/*.woff2"],
-    destDir: "/"
+  var fonts = new Funnel('vendor/fontello', {
+    srcDir: '/',
+    include: ['**/*.woff2'],
+    destDir: '/'
   });
   app.import('vendor/fontello/css/animation.css');
   app.import('vendor/fontello/css/transmittr.css');
