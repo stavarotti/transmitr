@@ -18,13 +18,11 @@ export function get() {
   if (storedStations !== null) {
     let parsedStations = JSON.parse(storedStations);
 
-    if (typeof parsedStations === 'object') {
-      // Detected new version.
-      stations = parsedStations.stations;
-    } else if (Array.isArray(parsedStations)) {
+    if (Array.isArray(parsedStations)) {
       stations = parsedStations;
     } else {
-      stations = [];
+      // Detected new version.
+      stations = parsedStations.stations;
     }
   } else {
     stations = [];
