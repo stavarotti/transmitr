@@ -1,4 +1,4 @@
-export default function() {
+export default function () {
 
   // These comments are here to help you get started. Feel free to delete them.
 
@@ -23,7 +23,9 @@ export default function() {
 
     http://www.ember-cli-mirage.com/docs/v0.3.x/shorthands/
   */
-  this.get('/stations', ({stations}, request) => {
+  this.get('/stations', ({
+    stations
+  }, request) => {
     if (request.queryParams.name) {
       return stations.all().filter(station => station.name.toLowerCase().indexOf(request.queryParams.name.toLowerCase()) > -1);
     }

@@ -4,6 +4,18 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'transmittr',
     environment: environment,
+    contentSecurityPolicy: {
+      "default-src": "'self'",
+      "frame-src": "'self' https://*.firebaseio.com",
+      "connect-src": "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      "script-src": "'self' 'unsafe-inline' https://*.firebaseio.com https://www.google-analytics.com",
+      "img-src": "'self' data: https://www.google-analytics.com"
+    },
+    contentSecurityPolicyMeta: true,
+    firebase: {
+      apiKey: process.env.FIREBASE_API_KEY
+    },
+    GOOGLE_ANALYTICS_ID: process.env.GOOGLE_ANALYTICS_ID,
     rootURL: '/',
     locationType: 'auto',
     EmberENV: {
