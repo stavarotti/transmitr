@@ -11,6 +11,17 @@ require('dotenv').config({
 
 module.exports = function (defaults) {
   var app = new EmberApp(defaults, {
+    'asset-cache': {
+      include: [
+        'assets/**/*'
+      ]
+    },
+
+    'esw-cache-fallback': {
+      patterns: [ '/' ],
+      version: '1' // Changing the version will bust the cache
+    },
+
     // Babel Options
     'ember-cli-babel': {
       optional: ['es7.decorators']
