@@ -1,4 +1,4 @@
-{{#if isMiniPlayerActive}}
+{{#liquid-if isMiniPlayerActive class="audio-player-mini-view"}}
   <div class="mini-player">
     <div class="mini-player-station-image">
       <i class="icon-music"></i>
@@ -13,7 +13,9 @@
       </button>
     </div>
   </div>
-{{else}}
+{{/liquid-if}}
+
+{{#liquid-unless isMiniPlayerActive class="audio-player-full-view"}}
   <div class="full-player">
     <div class="full-player-toggle">
       <button {{action "onToggleMiniPlayer"}}>
@@ -50,7 +52,7 @@
       <p>{{station.description}}</p>
     </div>
   </div>
-{{/if}}
+{{/liquid-unless}}
 
 <audio src={{audioSource}} volume={{currentVolume}} muted={{isMuted}} preload="none">
   Your browser does not support the <code>audio</code> element.

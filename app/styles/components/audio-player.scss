@@ -1,27 +1,23 @@
 .audio-player {
-  background-color: #fff;
+  background-color: transparent;
   position: absolute;
-
+  width: 100%;
+  
   &.mini {
-    background: #f9f9f9;
     bottom: 0;
-    width: 100%;
-    border-top: 1px solid #e0e0e3;
     position: fixed;
   }
 
   &.full {
-    border-top-left-radius: 0.25rem;
-    border-top-right-radius: 0.25rem;
     top: 0;
-    width: 100%;
     height: 100vh;
     z-index: 3;
-    background: #fff;
     position: fixed;
   }
 
   .mini-player {
+    border-top: 1px solid #e0e0e3;
+    background: #f9f9f9;
     display: flex;
     padding: 0.5rem 0 0.5rem 1rem;
     align-items: center;
@@ -57,10 +53,12 @@
   }
 
   .full-player {
+    background: #f9f9f9;
     display: flex;
     flex-direction: column;
     align-items: center;
     padding: 1rem;
+    height: 100vh;
 
     .full-player-station-name {
       border-bottom: 1px solid #e0e0e3;

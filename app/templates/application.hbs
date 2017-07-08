@@ -1,16 +1,12 @@
-{{! Application navigation. }}
 {{navigation-bar 
   isEditing=isEditing
   onToggleEdit=(action "onToggleEdit")
 }}
 
 <main>
-  {{outlet}}
+  {{liquid-outlet}}
 
-  {{! Audio player }}
   {{#if currentlyPlayingStation}}
-    <div class={{if isSearchingForStation "hide"}}>
-      {{audio-player station=currentlyPlayingStation}}
-    </div>
+    {{audio-player station=currentlyPlayingStation}}
   {{/if}}
 </main>

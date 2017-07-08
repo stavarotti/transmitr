@@ -1,7 +1,12 @@
 /**
- * The current cache version.
+ * The local storage key.
  */
-const CACHE_VERSION = 2;
+const STORAGE_KEY = 'transmittr-stations';
+
+/**
+ * The storage structure version.
+ */
+const STORAGE_VERSION = '2';
 
 /**
  * Returns all saved stations.
@@ -11,24 +16,13 @@ const CACHE_VERSION = 2;
  * @returns all saved stations.
  */
 export function get() {
-  let stations;
-
-  let storedStations = window.localStorage.getItem('stations');
+  let storedStations = window.localStorage.getItem(STORAGE_KEY);
 
   if (storedStations !== null) {
-    let parsedStations = JSON.parse(storedStations);
-
-    if (Array.isArray(parsedStations)) {
-      stations = parsedStations;
-    } else {
-      // Detected new version.
-      stations = parsedStations.stations;
-    }
-  } else {
-    stations = [];
+    return JSON.parse(storedStations).stations;
   }
 
-  return stations;
+  return [];
 }
 
 /**
@@ -40,9 +34,9 @@ export function get() {
  */
 export function replaceAll(stations) {
   window.localStorage.setItem(
-    'stations',
+    STORAGE_KEY,
     JSON.stringify({
-      version: CACHE_VERSION,
+      version: STORAGE_VERSION,
       stations
     })
   );
@@ -58,9 +52,9 @@ export function replaceAll(stations) {
 export function save(...stations) {
   let savedStations = get();
   window.localStorage.setItem(
-    'stations',
+    STORAGE_KEY,
     JSON.stringify({
-      version: CACHE_VERSION,
+      version: STORAGE_VERSION,
       stations: [...savedStations, ...stations]
     })
   );
