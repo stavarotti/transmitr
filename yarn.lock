@@ -2722,6 +2722,16 @@ ember-getowner-polyfill@^1.1.1:
     ember-cli-version-checker "^1.2.0"
     ember-factory-for-polyfill "^1.1.0"
 
+ember-hammertime@^1.2.3:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/ember-hammertime/-/ember-hammertime-1.2.3.tgz#1e120d1371b55a90486540f1ae36662cb04b88d5"
+  dependencies:
+    broccoli-funnel "^1.1.0"
+    broccoli-merge-trees "^2.0.0"
+    broccoli-stew "^1.5.0"
+    ember-cli-babel "^6.0.0"
+    hammer-timejs "^1.1.0"
+
 ember-hash-helper-polyfill@^0.1.2:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/ember-hash-helper-polyfill/-/ember-hash-helper-polyfill-0.1.2.tgz#bc8ee6fa59e9541fce07d2cf4f263cf785e9e1db"
@@ -3662,6 +3672,10 @@ graceful-fs@^4.1.11, graceful-fs@^4.1.2, graceful-fs@^4.1.3, graceful-fs@^4.1.4,
 growly@^1.3.0:
   version "1.3.0"
   resolved "https://registry.yarnpkg.com/growly/-/growly-1.3.0.tgz#f10748cbe76af964b7c96c93c6bcc28af120c081"
+
+hammer-timejs@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/hammer-timejs/-/hammer-timejs-1.1.0.tgz#fc07ec1e4012228fe51b6a51218ec12661a32a42"
 
 handlebars@^4.0.4, handlebars@^4.0.6:
   version "4.0.10"

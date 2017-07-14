@@ -1,4 +1,4 @@
-{{#if isEditing}}
+{{#liquid-if isEditing class="table-view-row-edit"}}
   <button {{action attrs.onRowRemoveAction model}} class="remove">
     <i class="icon-minus-circled"></i>
   </button>
@@ -12,7 +12,7 @@
       <div class="image-placeholder"></div>
     {{/if}}
   {{/if}}
-{{/if}}
+{{/liquid-if}}
 
 <div class="row-content">
   <div class="group">
