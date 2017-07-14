@@ -30,4 +30,14 @@ export default function () {
       easing: 'easeInExpo'
     })
   );
+
+  // Table view
+  this.transition(
+    this.hasClass('table-view-row-edit'),
+    this.includingInitialRender(),
+    this.toValue(true),
+    this.use('fade', {
+      duration: 100
+    })
+  )
 }

@@ -1,8 +1,11 @@
 {{! Previous screen back button. }}
 <div class="navigation-bar-lhs">
-  {{#if hasPreviousScreen}} {{#link-to "my-stations" class="navigation-bar-back-control"}}
-  <i class="icon-angle-left"></i>
-  <span>Back</span> {{/link-to}} {{/if}}
+  {{#liquid-if hasPreviousScreen}} 
+    {{#link-to "my-stations" class="navigation-bar-back-control"}}
+      <i class="icon-angle-left"></i>
+      <span>Back</span> 
+    {{/link-to}}
+  {{/liquid-if}}
 </div>
 
 {{! Current screen title. }}
@@ -12,9 +15,9 @@
 
 {{! Current screen actions. }}
 <div class="navigation-bar-rhs">
-  {{#unless hasPreviousScreen}}
+  {{#liquid-unless hasPreviousScreen}}
     <button {{action attrs.onToggleEdit}}>
       {{#if isEditing}}Done{{else}}Edit{{/if}}
-    </button> 
-  {{/unless}}
+    </button>
+  {{/liquid-unless}}
 </div>
