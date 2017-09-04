@@ -4,25 +4,23 @@ import StationCache from '../utils/station-cache';
 const { Controller, inject: { controller, service }, isEmpty } = Ember;
 
 export default Controller.extend({
+  /**
+   * The data store.
+   * 
+   * @private
+   * @property store
+   * @type {Object}
+   */
   store: service(),
 
   /**
-   * Inject the application controller.
+   * The application controller.
    * 
    * @private
    * @property applicationController
    * @type {Object}
    */
   applicationController: controller('application'),
-
-  /**
-   * Whether editing saved stations.
-   * 
-   * @public
-   * @property isEditing
-   * @type {boolean}
-   */
-  isEditing: false,
 
   actions: {
     /**
@@ -66,7 +64,7 @@ export default Controller.extend({
     },
 
     /**
-     * Handler for transitioning to the station route.
+     * Handler for transitioning to the station search route.
      * 
      * @public
      * @function onStationSearch

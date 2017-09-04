@@ -5,7 +5,6 @@ import StationCache from '../utils/station-cache';
 const { Route } = Ember;
 
 export default Route.extend({
-  
   /**
    * Attempts to run any validation before resolving the model for this route.
    * 
@@ -36,7 +35,7 @@ export default Route.extend({
       this.store.pushPayload({
         data: [
           {
-            id: uuid(),
+            id: '12C0B20BF3E3FB1C',
             type: 'stations',
             attributes: {
               dateAdded: '2016-12-31T18:24:08Z',
@@ -44,33 +43,35 @@ export default Route.extend({
               description: 'The best new music and entertainment',
               favorite: true,
               genre: 'Top 40 _ Pop',
-              location: 'http://open.live.bbc.co.uk/mediaselector/5/select/mediaset/http-icy-mp3-a/vpid/bbc_radio_one/format/pls.pls',
-              name: 'BBC Radio 1',
-              persistentId: '12C0B20BF3E3FB1C',
+              location:
+                'http://open.live.bbc.co.uk/mediaselector/5/select/mediaset/http-icy-mp3-a/vpid/bbc_radio_one/format/pls.pls',
+              name: 'BBC Radio 1'
             }
           },
           {
-            id: uuid(),
+            id: '33DBD925BBDB1700',
             type: 'stations',
             attributes: {
               dateAdded: '2016-12-31T18:21:17Z',
               bitRate: '128',
-              description: '1200 Hot Tracks A Day In The Mix! All Styles From The Old To The New!',
+              description:
+                '1200 Hot Tracks A Day In The Mix! All Styles From The Old To The New!',
               favorite: true,
               genre: 'Hip Hip _ Rap',
               location: 'http://flavormix.de/flavormixhigh.pls',
-              name: 'Flavor Mix',
-              persistentId: '33DBD925BBDB1700',
+              name: 'Flavor Mix'
             }
           }
         ]
       });
 
       // Save the stations to local storage.
-      let stations = this.get('store').peekAll('station').reduce((accum, model) => {
-        accum.push(model.serialize());
-        return accum;
-      }, []);
+      let stations = this.get('store')
+        .peekAll('station')
+        .reduce((accum, model) => {
+          accum.push(model.serialize());
+          return accum;
+        }, []);
 
       StationCache.saveAll(stations);
     }

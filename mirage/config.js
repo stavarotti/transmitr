@@ -36,4 +36,5 @@ export default function () {
   this.get('/stations/:id');
 
   this.passthrough('https://cors-anywhere.herokuapp.com/**');
+  this.passthrough('https://fy2j99evc0.execute-api.us-east-1.amazonaws.com/**')
 }
