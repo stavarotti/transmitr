@@ -1,7 +1,7 @@
+import { isEmpty } from '@ember/utils';
 import Ember from 'ember';
 
 const {
-  isEmpty,
   Logger: {
     error
   }

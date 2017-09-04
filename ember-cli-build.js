@@ -2,7 +2,7 @@
 'use strict';
 
 const EmberApp = require('ember-cli/lib/broccoli/ember-app');
-const Funnel = require('broccoli-funnel');
+// const Funnel = require('broccoli-funnel');
 const env = process.env.EMBER_ENV;
 
 require('dotenv').config({
@@ -45,14 +45,15 @@ module.exports = function (defaults) {
     }
   });
 
-  // Fontello
-  var fonts = new Funnel('vendor/fontello', {
-    srcDir: '/',
-    include: ['**/*.woff2'],
-    destDir: '/'
-  });
-  app.import('vendor/fontello/css/animation.css');
-  app.import('vendor/fontello/css/transmittr.css');
+  // // Fontello
+  // var fonts = new Funnel('vendor/fontello', {
+  //   srcDir: '/',
+  //   include: ['**/*.woff2'],
+  //   destDir: '/'
+  // });
+  // app.import('vendor/fontello/css/animation.css');
+  // app.import('vendor/fontello/css/transmittr.css');
 
-  return app.toTree(fonts);
+  // return app.toTree(fonts);
+  return app.toTree();
 };

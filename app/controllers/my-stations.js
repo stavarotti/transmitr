@@ -1,7 +1,7 @@
-import Ember from 'ember';
+import Controller, { inject as controller } from '@ember/controller';
+import { inject as service } from '@ember/service';
+import { isEmpty } from '@ember/utils';
 import StationCache from '../utils/station-cache';
-
-const { Controller, inject: { controller, service }, isEmpty } = Ember;
 
 export default Controller.extend({
   /**

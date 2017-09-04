@@ -1,8 +1,12 @@
+import Controller from '@ember/controller';
+import RSVP from 'rsvp';
 import Ember from 'ember';
 import { task } from 'ember-concurrency';
 import StationCache from '../utils/station-cache';
 
-const { $: { getJSON }, Controller, RSVP } = Ember;
+const {
+  $: { getJSON }
+} = Ember;
 
 export default Controller.extend({
   /**

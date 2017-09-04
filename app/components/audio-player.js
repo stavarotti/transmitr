@@ -1,10 +1,11 @@
-import Ember from 'ember';
+import Component from '@ember/component';
+import { computed } from '@ember/object';
+import { isEmpty } from '@ember/utils';
+import { scheduleOnce } from '@ember/runloop';
 import request from 'ember-ajax/request';
 import { getProxiedURL } from '../utils/proxy';
 import { M3U_MATCHER, m3uParser } from '../utils/parsers/m3u';
 import { PLS_MATCHER, plsParser } from '../utils/parsers/pls';
-
-const { Component, computed, isEmpty, run: { scheduleOnce } } = Ember;
 
 export default Component.extend({
   /**

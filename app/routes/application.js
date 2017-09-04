@@ -1,8 +1,6 @@
-import Ember from 'ember';
+import Route from '@ember/routing/route';
 import uuid from '../utils/uuid';
 import StationCache from '../utils/station-cache';
-
-const { Route } = Ember;
 
 export default Route.extend({
   /**

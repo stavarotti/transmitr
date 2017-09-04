@@ -1,9 +1,7 @@
+import { camelize } from '@ember/string';
 import Ember from 'ember';
 
 const {
-  String: {
-    camelize
-  },
   Logger: {
     error
   }
