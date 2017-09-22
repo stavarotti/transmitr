@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'transmittr';
-  src: url('../font/transmittr.eot?68161519');
-  src: url('../font/transmittr.eot?68161519#iefix') format('embedded-opentype'),
-       url('../font/transmittr.woff2?68161519') format('woff2'),
-       url('../font/transmittr.woff?68161519') format('woff'),
-       url('../font/transmittr.ttf?68161519') format('truetype'),
-       url('../font/transmittr.svg?68161519#transmittr') format('svg');
+  src: url('../font/transmittr.eot?38286126');
+  src: url('../font/transmittr.eot?38286126#iefix') format('embedded-opentype'),
+       url('../font/transmittr.woff2?38286126') format('woff2'),
+       url('../font/transmittr.woff?38286126') format('woff'),
+       url('../font/transmittr.ttf?38286126') format('truetype'),
+       url('../font/transmittr.svg?38286126#transmittr') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'transmittr';
-    src: url('../font/transmittr.svg?68161519#transmittr') format('svg');
+    src: url('../font/transmittr.svg?38286126#transmittr') format('svg');
   }
 }
 */
@@ -80,14 +80,14 @@
 .icon-fast-bw:before { content: '\e816'; } /* '' */
 .icon-list:before { content: '\e817'; } /* '' */
 .icon-minus-circled:before { content: '\e818'; } /* '' */
-.icon-spin2:before { content: '\e831'; } /* '' */
+.icon-heart-empty:before { content: '\e819'; } /* '' */
+.icon-heart:before { content: '\e81a'; } /* '' */
+.icon-cog-alt:before { content: '\e81b'; } /* '' */
 .icon-spin3:before { content: '\e832'; } /* '' */
 .icon-menu:before { content: '\f0c9'; } /* '' */
 .icon-angle-left:before { content: '\f104'; } /* '' */
 .icon-angle-right:before { content: '\f105'; } /* '' */
 .icon-angle-up:before { content: '\f106'; } /* '' */
 .icon-angle-down:before { content: '\f107'; } /* '' */
-.icon-spinner:before { content: '\f110'; } /* '' */
-.icon-help:before { content: '\f128'; } /* '' */
 .icon-ellipsis-vert:before { content: '\f142'; } /* '' */
 .icon-window-minimize:before { content: '\f2d1'; } /* '' */
