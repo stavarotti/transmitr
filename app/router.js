@@ -7,7 +7,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('my-stations', { path: '/' });
+  this.route('settings');
+  this.route('stations', { path: '/' });
   this.route('search');
 });
 

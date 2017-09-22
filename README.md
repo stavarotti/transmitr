@@ -1,3 +1,1 @@
-# transmittr
-
-A simple streaming media (pls/m3u) player.
+A streaming radio (pls/m3u) player.

@@ -10,7 +10,7 @@ require('dotenv').config({
 });
 
 module.exports = function (defaults) {
-  var app = new EmberApp(defaults, {
+  let app = new EmberApp(defaults, {
     'asset-cache': {
       include: [
         'assets/**/*'
