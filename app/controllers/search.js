@@ -1,4 +1,5 @@
 import Controller from '@ember/controller';
+import { inject as service } from '@ember/service';
 import RSVP from 'rsvp';
 import Ember from 'ember';
 import { task } from 'ember-concurrency';
@@ -10,6 +11,15 @@ const {
 
 export default Controller.extend({
   /**
+   * The data store.
+   * 
+   * @private
+   * @property store
+   * @type {Object}
+   */
+  store: service(),
+
+  /**
    * Task for station search.
    * 
    * @public
@@ -18,9 +28,10 @@ export default Controller.extend({
    */
   searchTask: task(function*(term) {
     let stations = yield getJSON(
-      `https://fy2j99evc0.execute-api.us-east-1.amazonaws.com/dev/search?st=${term}`
+      `https://vf278w2uqf.execute-api.us-east-1.amazonaws.com/prod/search?q=${term}`
     );
     console.log('stations => ', stations);
+    return this.get('store').push(stations);
   }),
 
   actions: {
