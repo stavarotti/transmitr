@@ -7,9 +7,7 @@
   padding-left: 1rem;
 
   &:last-of-type {
-    .row-content {
-      border-bottom: none;  
-    }
+    border-bottom: none;
   }
 
   &.editing {
@@ -38,6 +36,7 @@
   .image-placeholder {
     background: #8E8E93;
     border-radius: 0.25rem;
+    font-size: 1.875rem;
     flex-shrink: 0;
     height: 3.5rem;
     margin-right: 1rem;

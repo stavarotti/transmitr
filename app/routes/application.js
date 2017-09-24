@@ -42,7 +42,7 @@ export default Route.extend({
               bitRate: '128',
               description: 'The best new music and entertainment',
               favorite: true,
-              genre: 'Top 40 _ Pop',
+              genre: 'Top 40 / Pop',
               location:
                 'http://open.live.bbc.co.uk/mediaselector/5/select/mediaset/http-icy-mp3-a/vpid/bbc_radio_one/format/pls.pls',
               name: 'BBC Radio 1',
@@ -58,7 +58,7 @@ export default Route.extend({
               description:
                 '1200 Hot Tracks A Day In The Mix! All Styles From The Old To The New!',
               favorite: true,
-              genre: 'Hip Hip _ Rap',
+              genre: 'Hip Hop / Rap',
               location: 'http://flavormix.de/flavormixhigh.pls',
               name: 'Flavor Mix',
               persistentId: '33DBD925BBDB1700'

@@ -101,7 +101,7 @@ export default Component.extend({
   playIcon: computed('isLoadingStation', 'isPlaying', {
     get() {
       if (this.get('isLoadingStation')) {
-        return 'animate-spin icon-spin2';
+        return 'animate-spin icon-spin3';
       } else {
         if (this.get('isPlaying')) {
           return 'icon-pause';
@@ -151,19 +151,48 @@ export default Component.extend({
     });
   },
 
+  /**
+   * A listener for handling the `error` event.
+   * 
+   * @private
+   * @function errorHandler
+   */
   errorHandler() {},
 
+  /**
+   * A listener for handling the `playing` event.
+   * 
+   * @private
+   * @function playingHandler
+   */
   playingHandler() {
     this.set('isLoadingStation', false);
   },
 
+  /**
+   * A listener for handling the `stalled` event. This generally happens
+   * when the network is changed/lost.
+   * 
+   * @private
+   * @function stalledHandler
+   */
   stalledHandler() {
     this.setProperties({
-          isLoadingStation: false,
-          isPlaying: false
-        });
+      audioSource: '',
+      isLoadingStation: false,
+      isPlaying: false
+    });
+
+    this.send('onTogglePlay');
   },
 
+  /**
+   * A listener for handling the `waiting` event. The event is dispatched
+   * when the station is getting ready to play.
+   * 
+   * @private
+   * @function waitingHandler
+   */
   waitingHandler() {
     this.set('isLoadingStation', true);
   },
@@ -178,26 +207,28 @@ export default Component.extend({
   didInsertElement() {
     let audioElement = this.$('audio')[0];
 
-    // Handler for when an error occurs.  Note, this generally happens when
-    // changing the `audioSource`.  Adding an noop error handler is sufficient
+    // Listener for when an error occurs.  Note, this generally happens when
+    // changing the `audioSource` and doesn't need any special handling
+    // hence the no-op.
     audioElement.addEventListener('error', this.errorHandler.bind(this), false);
 
-    // Handler for toggling the play button state when the audio stream
-    // starts receiving audio data.
+    // Listener for handling the `stalled` event. This generally happens
+    // when the network is changed/lost.
     audioElement.addEventListener(
       'playing',
       this.playingHandler.bind(this),
       false
     );
 
-    // Handler for toggling the play button state when the network is lost.
+    // Listener for handling the `stalled` event. This generally happens
+    // when the network is changed/lost.
     audioElement.addEventListener(
       'stalled',
       this.stalledHandler.bind(this),
       false
     );
 
-    // Handler for toggling the play button state when waiting for the audio.
+    // Listener for toggling the play button state when waiting for the audio.
     audioElement.addEventListener(
       'waiting',
       this.waitingHandler.bind(this),
@@ -234,7 +265,7 @@ export default Component.extend({
   willDestroyElement() {
     let audioElement = this.get('audioElement');
 
-    // Remove all previously attached handlers
+    // Remove all previously attached handlers.
     audioElement.removeEventListener('error', this.errorHandler);
     audioElement.removeEventListener('playing', this.playingHandler);
     audioElement.removeEventListener('stalled', this.stalledHandler);

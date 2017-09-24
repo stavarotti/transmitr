@@ -1,7 +1,7 @@
 {{#liquid-if isMiniPlayerActive class="audio-player-mini-view"}}
   <div class="mini-player">
     <div class="mini-player-station-image">
-      <i class="icon-music"></i>
+      {{acronym-scheme phrase=station.name}}
     </div>
     <div class="mini-player-station-name">{{station.name}}</div>
     <div class="mini-player-actions">

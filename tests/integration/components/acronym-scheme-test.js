@@ -1,24 +1,23 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('station-item', 'Integration | Component | station item', {
+moduleForComponent('acronym-scheme', 'Integration | Component | acronym scheme', {
   integration: true
 });
 
 test('it renders', function(assert) {
-
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{station-item}}`);
+  this.render(hbs`{{acronym-scheme}}`);
 
   assert.equal(this.$().text().trim(), '');
 
   // Template block usage:
   this.render(hbs`
-    {{#station-item}}
+    {{#acronym-scheme}}
       template block text
-    {{/station-item}}
+    {{/acronym-scheme}}
   `);
 
   assert.equal(this.$().text().trim(), 'template block text');

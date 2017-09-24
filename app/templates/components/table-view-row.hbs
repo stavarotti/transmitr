@@ -9,7 +9,9 @@
         <img src={{imageViewURL}}>
       </div>
     {{else}}
-      <div class="image-placeholder"></div>
+      <div class="image-placeholder">
+        {{acronym-scheme phrase=title}}
+      </div>
     {{/if}}
   {{/if}}
 {{/liquid-if}}
