@@ -1,1 +1,14 @@
-{{outlet}}
+<div class="page-header">
+  <h1 class="heading">Stations</h1>
+  <div class="actions">
+    <button class="action-item" {{action "onToggleEdit"}}>Edit</button>
+  </div>
+</div>
+
+{{station-list 
+  isEditing=isEditing
+  onRowAction=(action "onSetNowPlayingStation")
+  onRowDefaultAction=(action "onStationSearch")
+  onRowRemoveAction=(action "onRemoveSavedStation")
+  stations=model
+}}

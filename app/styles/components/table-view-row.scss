@@ -1,8 +1,10 @@
 .table-view-row {
+  border-bottom: 1px solid #e0e0e3;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  cursor: pointer;
-  min-height: 2.625rem;
+  min-height: 4.5rem;
+  padding-left: 1rem;
 
   &:last-of-type {
     .row-content {
@@ -37,29 +39,36 @@
     background: #8E8E93;
     border-radius: 0.25rem;
     flex-shrink: 0;
-    height: 2.5rem;
+    height: 3.5rem;
     margin-right: 1rem;
-    width: 2.5rem;
+    width: 3.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
   }
 
   .row-content {
+    height: 3.5rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid #e0e0e3;
     flex-grow: 2;
     padding: 0.125rem 0.5rem 0.125rem 0;
 
     .group {
-      padding: 0.25rem 0;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .sub-title {
       color: #8E8E93;
       font-size: 0.875rem;
+    }
+    
+    .title {
+      font-weight: 900;
     }
 
     .title,

@@ -1,0 +1,47 @@
+.global-nav {
+  background-color: #f9f9f9;
+  display: flex;
+  height: 4rem;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  padding: 1rem;
+  z-index: 1;
+
+  &.nav-sheet-active {
+    flex-direction: column;
+    height: 100vh;
+
+    nav {
+      display: flex;
+      flex-direction: column;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      
+      a {
+        border-bottom: 1px solid #d6d6d6;
+        color: #333;
+        font-size: 2rem;
+        padding: 1rem 1rem 1rem 0;
+        text-decoration: none;
+      }
+    }
+
+    .nav-toggle {
+      align-self: flex-start;
+    }
+  }
+
+  nav {
+    display: none;
+  }
+
+  .nav-toggle {
+    font-size: 2rem;
+
+    i::before {
+      margin: 0;
+    }
+  }
+}
+

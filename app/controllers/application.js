@@ -4,35 +4,11 @@ const { Controller } = Ember;
 
 export default Controller.extend({
   /**
-   * A reference to the currently active station.
+   * A reference to the currently playing station.
    * 
    * @public
-   * @property currentlyPlayingStation
+   * @property nowPlayingStation
    * @type {Object}
    */
-  currentlyPlayingStation: null,
-
-  /**
-   * Whether editing saved stations.
-   * 
-   * @public
-   * @property isEditing
-   * @type {boolean}
-   */
-  isEditing: false,
-
-  /**
-   * Managers
-   */
-  actions: {
-    /**
-     * Handler for toggling edit mode for a given screen.
-     * 
-     * @public
-     * @function onToggleEdit
-     */
-    onToggleEdit() {
-      this.toggleProperty('isEditing');
-    }
-  }
+  nowPlayingStation: null
 });

@@ -1,12 +1,10 @@
-{{navigation-bar 
-  isEditing=isEditing
-  onToggleEdit=(action "onToggleEdit")
-}}
+{{! Global navigation. }}
+{{global-nav}}
 
 <main>
   {{liquid-outlet enableGrowth=false}}
 
-  {{#if currentlyPlayingStation}}
-    {{audio-player station=currentlyPlayingStation}}
+  {{#if nowPlayingStation}}
+    {{audio-player station=nowPlayingStation}}
   {{/if}}
 </main>

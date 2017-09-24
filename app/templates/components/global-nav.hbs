@@ -1,0 +1,9 @@
+<button class="nav-toggle" {{action "onToggleNavSheet"}}>
+  <i class="icon-menu"></i>
+</button>
+
+<nav>
+  {{link-to "Stations" "stations" click=(action 'onNavigate')}}
+  {{link-to "Search" "search" click=(action 'onNavigate')}}
+  {{link-to "Settings" "settings" click=(action 'onNavigate')}}
+</nav>

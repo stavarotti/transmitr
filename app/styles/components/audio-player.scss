@@ -5,6 +5,7 @@
   
   &.mini {
     bottom: 0;
+    height: 4rem;
     position: fixed;
   }
 
@@ -18,8 +19,9 @@
   .mini-player {
     border-top: 1px solid #e0e0e3;
     background: #f9f9f9;
+    height: 4rem;
     display: flex;
-    padding: 0.5rem 0 0.5rem 1rem;
+    padding: 0 1rem;
     align-items: center;
 
     .mini-player-actions {
