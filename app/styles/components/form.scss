@@ -1,0 +1,27 @@
+
+.form-control {
+  color: color($foreground-dark, '1');
+  background-clip: padding-box;
+  background-color: $white;
+  background-image: none;
+  border: 1px solid rgba(0, 0, 0, .15);
+  border-radius: .25rem;
+  display: block;
+  font-size: 1rem;
+  line-height: 1.25;
+  padding: .5rem .75rem;
+  width: 100%;
+  -webkit-background-clip: padding-box;
+  -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+  -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s, -webkit-box-shadow ease-in-out .15s
+}
+
+.help-block {
+  color: color($foreground-light, '3');
+  display: block;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}

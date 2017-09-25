@@ -2,9 +2,9 @@
   margin: 1rem 0;
 
   .table-view-body {
-    background-color: #fff;
-    border-bottom: 1px solid #e0e0e3;
-    border-top: 1px solid #e0e0e3;
+    background-color: $white;
+    border-bottom: 1px solid color($primary, '300');
+    border-top: 1px solid color($primary, '300');
   }
 
   .table-view-group-container {

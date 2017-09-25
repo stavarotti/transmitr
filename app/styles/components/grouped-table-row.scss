@@ -1,5 +1,5 @@
 .grouped-table-row {
-  border-bottom: 1px solid #e0e0e3;
+  border-bottom: 1px solid color($primary, '300');
   margin-left: 1rem;
   padding: 0.5rem 0;
 
@@ -7,7 +7,5 @@
     border-bottom: none;
   }
 
-  &.selected {
-    background-color: #4ba2ff;
-  }
+  &.selected {}
 }

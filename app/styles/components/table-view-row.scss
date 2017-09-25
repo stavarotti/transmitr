@@ -1,5 +1,5 @@
 .table-view-row {
-  border-bottom: 1px solid #e0e0e3;
+  border-bottom: 1px solid color($primary, '300');
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@
   }
 
   .image-placeholder {
-    background: #8E8E93;
+    background: color($primary, '500');
     border-radius: 0.25rem;
     font-size: 1.875rem;
     flex-shrink: 0;
@@ -62,7 +62,7 @@
     }
 
     .sub-title {
-      color: #8E8E93;
+      color: color($primary, '500');
       font-size: 0.875rem;
     }
     

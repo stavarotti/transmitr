@@ -1,17 +1,13 @@
 .page-header {
-  background-color: #f9f9f9;
-  border-bottom: 1px solid #d6d6d6;
+  background-color: color($primary, '100');
+  border-bottom: 1px solid color($primary, '400');
   padding: 0 1rem 1rem;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
 
-  .actions {
-
-  }
-
   .action-item {
-    color: #1D84FB;
+    color: color($accent, '600');;
     font-size: 1.25rem;
   }
 

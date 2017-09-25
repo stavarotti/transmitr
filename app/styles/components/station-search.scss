@@ -1,8 +1,8 @@
 .station-search {
-  background: #efeff4;
+  background: color($primary, '200');
 
   .station-search-box {
-    background: #f9f9f9;
+    background: color($primary, '100');
     padding: 0.5rem 1rem;
 
     input {
